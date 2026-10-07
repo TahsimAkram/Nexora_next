@@ -1,0 +1,328 @@
+/* =========================================
+   NEXORA NAVBAR — TRANSPARENT / MINIMAL
+========================================= */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  padding: 0 var(--page-gutter);
+  background: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Remove all container styling */
+.navbar__shell {
+  position: relative;
+  width: 100%;
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0;
+  background: none !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Background appears only after scrolling */
+.navbar.navbar--scrolled {
+  background: rgba(246, 246, 241, 0.92) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  box-shadow: 0 1px 0 rgba(20, 20, 20, 0.06) !important;
+}
+
+/* =========================================
+   NAVBAR INNER
+========================================= */
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 54px;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* =========================================
+   BRAND
+========================================= */
+
+.navbar__brand {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  color: var(--color-foreground);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.navbar__brand span {
+  color: #a4d900;
+}
+
+/* =========================================
+   DESKTOP NAVIGATION
+========================================= */
+
+.navbar__links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1.4rem, 2.5vw, 2.4rem);
+  margin: 0;
+  padding: 0;
+}
+
+.navbar__link {
+  position: relative;
+  padding: 0.35rem 0;
+  color: var(--color-foreground);
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 1.4;
+  text-decoration: none;
+  opacity: 0.72;
+  transition: opacity 200ms ease;
+}
+
+.navbar__link:hover,
+.navbar__link--active {
+  opacity: 1;
+}
+
+.navbar__link::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  background: #a4d900;
+  content: "";
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 220ms ease;
+}
+
+.navbar__link:hover::after,
+.navbar__link--active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* =========================================
+   CONTACT LINK
+========================================= */
+
+.navbar__contact {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 0.4rem;
+  color: var(--color-foreground);
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    color 0.35s ease,
+    gap 0.35s ease;
+  border: none;
+  border-radius: 3em;
+  padding: 0.8em 1.1em;
+  background: #f4ff0000;
+}
+
+.navbar__contact:hover {
+  opacity: 0.65;
+}
+
+.navbar__contact svg {
+  color: #8da92c;
+  font-size: 0.95rem;
+  transition: transform 200ms ease;
+}
+
+.navbar__contact:hover svg {
+  transform: translate(2px, -2px);
+}
+
+/* =========================================
+   MOBILE MENU BUTTON
+========================================= */
+
+.navbar__menu-button {
+  display: none !important;
+  width: 36px;
+  height: 36px;
+  padding: 0 !important;
+  color: var(--color-foreground) !important;
+}
+
+/* =========================================
+   MOBILE MENU
+========================================= */
+
+.navbar__mobile {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .navbar {
+    padding: 0 var(--page-gutter);
+  }
+
+  .navbar__inner {
+    height: 48px;
+  }
+
+  .navbar__links,
+  .navbar__contact {
+    display: none;
+  }
+
+  .navbar__menu-button {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .navbar__mobile {
+    position: absolute;
+    top: 100%;
+    right: calc(-1 * var(--page-gutter));
+    left: calc(-1 * var(--page-gutter));
+    display: flex;
+    flex-direction: column;
+    max-height: 0;
+    padding: 0 var(--page-gutter);
+    overflow: hidden;
+
+    /* Background only for the expanded mobile menu */
+    background: #f6f6f1;
+
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      max-height 300ms ease,
+      opacity 200ms ease,
+      padding 300ms ease,
+      visibility 300ms ease;
+  }
+
+  .navbar__mobile--open {
+    max-height: 460px;
+    padding-top: 0.5rem;
+    padding-bottom: 1rem;
+    opacity: 1;
+    visibility: visible;
+    border-bottom: 1px solid rgba(25, 29, 14, 0.08);
+  }
+
+  .navbar__mobile-link {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid rgba(25, 29, 14, 0.07);
+    color: var(--color-foreground);
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  .navbar__mobile-number {
+    color: #8da92c;
+    font-size: 0.65rem;
+    font-weight: 700;
+  }
+
+  .navbar__mobile-link svg {
+    width: 16px;
+    margin-left: auto;
+    opacity: 0;
+    transition:
+      opacity 200ms ease,
+      transform 200ms ease;
+  }
+
+  .navbar__mobile-link:hover svg,
+  .navbar__mobile-link--active svg {
+    opacity: 1;
+    transform: translate(2px, -2px);
+  }
+
+  .navbar__mobile-contact {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.9rem 0;
+    color: var(--color-foreground);
+    font-size: 0.9rem;
+    font-weight: 650;
+    text-decoration: none;
+  }
+
+  .navbar__mobile-contact svg {
+    color: #8da92c;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+  .navbar__inner {
+    height: 44px;
+  }
+
+  .navbar__brand {
+    font-size: 0.92rem;
+  }
+}
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar *,
+  .navbar *::before,
+  .navbar *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+.navbar__contact svg {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.navbar__contact:hover {
+  background-color: #83b900;
+  gap: 12px;
+  color: white;
+  padding: 0.8em 1em;
+  border-radius: 3em;
+}
+
+.navbar__contact:hover svg {
+  transform: translate(3px, -3px);
+  color: white;
+}

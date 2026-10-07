@@ -1,0 +1,619 @@
+/* =========================================================
+   CONTACT CTA
+========================================================= */
+
+.contact-cta {
+  position: relative;
+  min-height: 580px;
+  width: 100%;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    radial-gradient(
+      circle at 50% 35%,
+      rgba(120, 150, 80, 0.045),
+      transparent 42%
+    ),
+    #080b0a;
+
+  color: #f4f5f2;
+}
+
+/* =========================================================
+   PARTICLES
+========================================================= */
+
+.contact-cta__particles {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* =========================================================
+   ATMOSPHERIC GLOW
+========================================================= */
+
+.contact-cta__glow {
+  position: absolute;
+
+  left: 50%;
+  top: 48%;
+
+  width: min(900px, 72vw);
+  height: min(520px, 58vh);
+
+  transform: translate(-50%, -50%);
+
+  background: radial-gradient(
+    ellipse at center,
+    rgba(190, 235, 70, 0.045) 0%,
+    rgba(55, 165, 195, 0.028) 32%,
+    rgba(55, 165, 195, 0.012) 50%,
+    transparent 72%
+  );
+
+  filter: blur(22px);
+
+  pointer-events: none;
+
+  z-index: 1;
+}
+
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
+
+.contact-cta__content {
+  position: relative;
+
+  z-index: 5;
+
+  width: min(100% - 3rem, 1100px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+}
+
+/* =========================================================
+   EYEBROW
+========================================================= */
+
+.contact-cta__eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 1rem;
+
+  margin-bottom: 1.7rem;
+
+  color: rgba(240, 242, 238, 0.65);
+
+  font-size: 0.66rem;
+  font-weight: 500;
+
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+}
+
+.contact-cta__eyebrow span:first-child,
+.contact-cta__eyebrow span:last-child {
+  width: 72px;
+  height: 1px;
+
+  background: rgba(220, 225, 215, 0.45);
+}
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.contact-cta__title {
+  margin: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  font-size: 3.5em;
+
+  font-weight: 400;
+
+  line-height: 0.9;
+
+  letter-spacing: -0.065em;
+
+  text-transform: uppercase;
+}
+
+.contact-cta__title-line {
+  display: block;
+}
+
+.contact-cta__title-line--accent {
+  margin-top: 0.08em;
+
+  color: #b9ed5d;
+
+  font-weight: 500;
+
+  text-shadow: 0 0 35px rgba(185, 237, 93, 0.08);
+}
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.contact-cta__description {
+  max-width: 580px;
+
+  margin: 1.8rem auto 0;
+
+  color: rgba(235, 238, 233, 0.68);
+
+  font-size: 0.8rem;
+  line-height: 1.7;
+}
+
+/* =========================================================
+   CTA BUTTON
+========================================================= */
+
+.contact-cta__action {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  margin-top: 2rem;
+  /* min-width: 169px; */
+  height: 45px;
+  padding: 0.4rem 0.45rem 0.4rem 1rem;
+  border: 1px solid rgba(188, 239, 96, 0.7);
+  border-radius: 999px;
+  background: transparent;
+  color: #eaf5d6;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  transition:
+    background 0.4s ease,
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
+}
+
+.contact-cta__action::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  border-radius: inherit;
+
+  background: linear-gradient(
+    90deg,
+    rgba(190, 235, 95, 0.1),
+    rgba(190, 235, 95, 0.02)
+  );
+
+  opacity: 0;
+
+  transition: opacity 0.4s ease;
+}
+
+.contact-cta__action:hover {
+  border-color: #b9ed5d;
+
+  background: rgba(185, 237, 93, 0.05);
+
+  box-shadow:
+    0 0 25px rgba(185, 237, 93, 0.12),
+    inset 0 0 20px rgba(185, 237, 93, 0.025);
+}
+
+.contact-cta__action:hover::before {
+  opacity: 1;
+}
+
+.contact-cta__action > span:first-child {
+  position: relative;
+  z-index: 2;
+}
+
+/* =========================================================
+   ARROW
+========================================================= */
+
+.contact-cta__arrow {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 30px;
+  height: 30px;
+
+  margin-left: 1.4rem;
+
+  border-radius: 50%;
+
+  background: #b9ed5d;
+
+  color: #0a0d09;
+
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.3s ease;
+}
+
+.contact-cta__action:hover .contact-cta__arrow {
+  transform: translateX(3px);
+}
+
+/* =========================================================
+   EMAIL
+========================================================= */
+
+.contact-cta__email {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 0.7rem;
+
+  margin-top: 1.4rem;
+
+  color: rgba(235, 238, 233, 0.6);
+
+  font-size: 0.85rem;
+
+  text-decoration: none;
+
+  transition: color 0.3s ease;
+}
+
+.contact-cta__email:hover {
+  color: #b9ed5d;
+}
+
+.contact-cta__email svg {
+  color: #b9ed5d;
+}
+
+/* =========================================================
+   SIDE ACCENT LINES
+========================================================= */
+
+.contact-cta__line {
+  position: absolute;
+
+  top: 57%;
+
+  width: 15vw;
+  max-width: 220px;
+
+  height: 1px;
+
+  background: linear-gradient(90deg, transparent, rgba(185, 237, 93, 0.45));
+
+  pointer-events: none;
+
+  z-index: 2;
+}
+
+.contact-cta__line--left {
+  left: 0;
+
+  transform-origin: left center;
+
+  transform: rotate(-8deg);
+}
+
+.contact-cta__line--right {
+  right: 0;
+
+  transform-origin: right center;
+
+  transform: rotate(8deg);
+
+  background: linear-gradient(90deg, rgba(185, 237, 93, 0.45), transparent);
+}
+
+/* =========================================================
+   BOTTOM ACCENT
+========================================================= */
+
+.contact-cta__bottom-line {
+  position: absolute;
+
+  bottom: 0;
+
+  height: 1px;
+
+  background: rgba(185, 237, 93, 0.22);
+
+  z-index: 4;
+}
+
+.contact-cta__bottom-line--left {
+  left: 0;
+  width: 35%;
+}
+
+.contact-cta__bottom-line--right {
+  right: 0;
+  width: 35%;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+  .contact-cta {
+    min-height: 520px;
+  }
+
+  .contact-cta__title {
+    font-size: clamp(3.1rem, 8vw, 5.5rem);
+  }
+
+  .contact-cta__line {
+    width: 11vw;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 760px) {
+  .contact-cta {
+    min-height: 500px;
+
+    padding: 5rem 1.5rem;
+  }
+
+  .contact-cta__content {
+    width: 100%;
+  }
+
+  .contact-cta__eyebrow {
+    gap: 0.7rem;
+
+    font-size: 0.55rem;
+
+    letter-spacing: 0.25em;
+  }
+
+  .contact-cta__eyebrow span:first-child,
+  .contact-cta__eyebrow span:last-child {
+    width: 38px;
+  }
+
+  .contact-cta__title {
+    font-size: clamp(2.8rem, 12vw, 4.8rem);
+
+    letter-spacing: -0.07em;
+  }
+
+  .contact-cta__description {
+    max-width: 420px;
+
+    margin-top: 1.5rem;
+
+    font-size: 0.9rem;
+  }
+
+  .contact-cta__action {
+    margin-top: 1.8rem;
+
+    height: 54px;
+    min-width: 215px;
+
+    padding-left: 1.4rem;
+
+    font-size: 0.62rem;
+  }
+
+  .contact-cta__arrow {
+    width: 42px;
+    height: 42px;
+
+    margin-left: 1rem;
+  }
+
+  .contact-cta__line {
+    display: none;
+  }
+
+  .contact-cta__bottom-line--left,
+  .contact-cta__bottom-line--right {
+    width: 25%;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 440px) {
+  .contact-cta {
+    min-height: 470px;
+
+    padding: 4.5rem 1.2rem;
+  }
+
+  .contact-cta__eyebrow {
+    font-size: 0.48rem;
+    letter-spacing: 0.2em;
+  }
+
+  .contact-cta__eyebrow span:first-child,
+  .contact-cta__eyebrow span:last-child {
+    width: 24px;
+  }
+
+  .contact-cta__title {
+    font-size: clamp(2.45rem, 13vw, 3.8rem);
+  }
+
+  .contact-cta__description {
+    max-width: 330px;
+
+    font-size: 0.82rem;
+    line-height: 1.65;
+  }
+
+  .contact-cta__email {
+    font-size: 0.76rem;
+  }
+}
+contact-cta {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.contact-cta__particles {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  pointer-events: none;
+
+  z-index: 0;
+}
+
+.contact-cta__glow {
+  z-index: 1;
+}
+
+.contact-cta__content {
+  position: relative;
+  z-index: 3;
+}
+
+.contact-cta__line,
+.contact-cta__bottom-line {
+  z-index: 2;
+}
+.contact-cta {
+  position: relative;
+  min-height: 520px;
+  overflow: hidden;
+
+  background: linear-gradient(105deg, #020604 0%, #030806 45%, #020504 100%);
+}
+.contact-cta::before {
+  content: "";
+  position: absolute;
+
+  top: -35%;
+  left: -20%;
+
+  width: 140%;
+  height: 170%;
+
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    rgba(131, 185, 0, 0.025) 18%,
+    rgba(131, 185, 0, 0.1) 32%,
+    rgba(189, 235, 70, 0.13) 43%,
+    rgba(131, 185, 0, 0.07) 53%,
+    rgba(131, 185, 0, 0.025) 67%,
+    transparent 82%
+  );
+
+  filter: blur(28px);
+
+  transform: translateX(-35%) skewX(-12deg);
+
+  animation: ctaWaveFlow 12s ease-in-out infinite;
+
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes ctaWaveFlow {
+  0% {
+    transform: translateX(-35%) translateY(2%) skewX(-12deg) skewY(1deg);
+  }
+
+  25% {
+    transform: translateX(-10%) translateY(-2%) skewX(-8deg) skewY(-2deg);
+  }
+
+  50% {
+    transform: translateX(15%) translateY(2%) skewX(-14deg) skewY(2deg);
+  }
+
+  75% {
+    transform: translateX(40%) translateY(-2%) skewX(-7deg) skewY(-1deg);
+  }
+
+  100% {
+    transform: translateX(70%) translateY(2%) skewX(-12deg) skewY(1deg);
+  }
+}
+.contact-cta::after {
+  content: "";
+  position: absolute;
+
+  top: -45%;
+  left: -30%;
+
+  width: 160%;
+  height: 190%;
+
+  background: linear-gradient(
+    110deg,
+    transparent 15%,
+    rgba(83, 125, 20, 0.025) 28%,
+    rgba(131, 185, 0, 0.055) 39%,
+    rgba(189, 235, 70, 0.045) 47%,
+    rgba(131, 185, 0, 0.025) 57%,
+    transparent 72%
+  );
+
+  filter: blur(45px);
+
+  transform: translateX(-25%) skewX(8deg);
+
+  animation: ctaWaveFlow2 18s ease-in-out infinite;
+
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes ctaWaveFlow2 {
+  0% {
+    transform: translateX(-25%) translateY(0) skewX(8deg);
+  }
+
+  50% {
+    transform: translateX(25%) translateY(3%) skewX(-6deg);
+  }
+
+  100% {
+    transform: translateX(65%) translateY(-2%) skewX(8deg);
+  }
+}

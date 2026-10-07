@@ -1,0 +1,1099 @@
+.work-section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #f4f4ee;
+  color: #111416;
+  padding: 40px 48px 40px;
+  isolation: isolate;
+}
+
+.work-container {
+  position: relative;
+  width: min(1440px, 100%);
+  margin: 0 auto;
+  z-index: 2;
+}
+
+.work-grid {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  opacity: 0.35;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(131, 185, 0, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(131, 185, 0, 0.045) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 12%,
+    black 88%,
+    transparent
+  );
+}
+
+.work-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+.work-heading {
+  max-width: 720px;
+}
+
+.work-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 28px;
+  color: #171b1d;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+}
+
+.work-eyebrow span:first-child {
+  width: 42px;
+  height: 1px;
+  background: #15191b;
+}
+
+.work-heading h2 {
+  margin: 0;
+  font-size: 3em;
+  line-height: 0.91;
+  font-weight: 500;
+  letter-spacing: -0.075em;
+}
+
+.work-heading h2 span {
+  color: #83b900;
+}
+
+.work-heading p {
+  margin: 10px 0 0;
+  color: #646b6e;
+  font-size: 13px;
+  line-height: 1.55;
+  letter-spacing: -0.01em;
+}
+
+.work-all-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-width: 135px;
+  height: 42px;
+  padding: 0px 10px;
+  border: 1px solid #60676a;
+  border-radius: 999px;
+  color: #171b1d;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-decoration: none;
+  transition:
+    background 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease,
+    transform 0.35s ease;
+}
+
+.work-all-link span:last-child {
+  color: #83b900;
+  font-size: 17px;
+  transition: transform 0.35s ease;
+}
+
+.work-all-link:hover {
+  background: #111416;
+  border-color: #111416;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.work-all-link:hover span:last-child {
+  transform: translate(4px, -2px);
+}
+
+.work-projects {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.work-project {
+  position: relative;
+  display: grid;
+  min-height: 520px;
+  align-items: center;
+}
+
+.work-project__content {
+  position: relative;
+  z-index: 3;
+  padding-left: 60px;
+}
+
+.work-project__meta {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 10px;
+}
+
+.work-project__number {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.work-project__meta-line {
+  width: 42px;
+  height: 1px;
+  background: #777d7f;
+}
+
+.work-project__category {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.23em;
+}
+
+.work-project h3 {
+  margin: 0;
+  font-size: 2rem;
+  line-height: 0.95;
+  font-weight: 500;
+  letter-spacing: -0.07em;
+}
+
+.work-project__tagline {
+  margin-top: 8px;
+  color: #72787a;
+  font-size: 15px;
+  line-height: 1.2;
+}
+
+.work-project__description {
+  max-width: 430px;
+  margin: 14px 0 16px;
+  color: #5d6568;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.work-technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.work-tech {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 0 13px;
+  border: 1px solid rgba(80, 88, 91, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.38);
+  color: #33393b;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.work-case-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  color: #14181a;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-decoration: none;
+}
+
+.work-case-link__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  background: #111416;
+  color: #fff;
+  font-size: 15px;
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.work-case-link:hover .work-case-link__icon {
+  background: #83b900;
+  transform: translate(3px, -3px);
+}
+
+.work-project__visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.work-project__visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+  transition:
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.7s ease;
+}
+
+.work-project:hover .work-project__visual img {
+  filter: brightness(1.03);
+}
+
+/* TRAFT */
+
+.work-project--traft {
+  grid-template-columns: 40% 62%;
+  min-height: 350px;
+}
+
+.work-project--traft .work-project__visual {
+  margin-left: -4%;
+  transform: translateY(-10px);
+}
+
+.work-project--traft .work-project__visual img {
+  width: 75%;
+}
+
+/* SMILE BEAUTY */
+
+.work-project--beauty {
+  grid-template-columns: 60% 40%;
+  min-height: 320px;
+  border-radius: 44px;
+  background: rgba(248, 232, 225, 0.78);
+}
+
+.work-project--beauty .work-project__content {
+  grid-column: 2;
+  padding-left: 28px;
+}
+
+.work-project--beauty .work-project__visual {
+  grid-column: 1;
+  grid-row: 1;
+  height: 100%;
+}
+
+.work-project--beauty .work-project__visual img {
+  width: 75%;
+  transform: scale(1.03);
+}
+
+.work-project--beauty:hover .work-project__visual img {
+  transform: scale(1.07) translateY(-5px);
+}
+
+/* HYDROPONIC */
+
+.work-project--hydroponic {
+  grid-template-columns: 40% 60%;
+  min-height: 320px;
+  border-radius: 44px;
+}
+
+.work-project--hydroponic .work-project__content {
+  grid-column: 1;
+  padding-left: 60px;
+}
+
+.work-project--hydroponic .work-project__visual {
+  margin-left: -2%;
+}
+
+.work-project--hydroponic .work-project__visual img {
+  width: 75%;
+  transform: scale(1.03);
+}
+
+.work-project--hydroponic:hover .work-project__visual img {
+  transform: scale(1.07) translateY(-5px);
+}
+
+/* .work-project--hydroponic {
+  grid-template-columns: 38% 62%;
+  min-height: 540px;
+}
+
+.work-project--hydroponic .work-project__visual {
+  margin-left: -2%;
+}
+
+.work-project--hydroponic .work-project__visual img {
+  width: 75%;
+} */
+
+/* PROJECT SEPARATION */
+
+.work-project:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(80, 88, 91, 0.15),
+    transparent
+  );
+}
+
+.work-energy {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.work-energy__canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.work-container {
+  position: relative;
+  z-index: 2;
+}
+
+.work-grid {
+  z-index: -2;
+}
+/* =========================================================
+   RESPONSIVE — TABLET
+   ========================================================= */
+
+@media (max-width: 1200px) {
+  .work-section {
+    padding: 90px 32px 110px;
+  }
+
+  .work-header {
+    gap: 40px;
+    margin-bottom: 45px;
+  }
+
+  .work-heading {
+    max-width: 650px;
+  }
+
+  .work-heading h2 {
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+  }
+
+  .work-project {
+    min-height: 420px;
+  }
+
+  .work-project--traft {
+    grid-template-columns: 43% 57%;
+  }
+
+  .work-project--beauty {
+    grid-template-columns: 57% 43%;
+  }
+
+  .work-project--hydroponic {
+    grid-template-columns: 43% 57%;
+  }
+
+  .work-project__content {
+    padding-left: 35px;
+  }
+
+  .work-project--beauty .work-project__content {
+    padding-left: 20px;
+  }
+
+  .work-project--hydroponic .work-project__content {
+    padding-left: 35px;
+  }
+
+  .work-project__visual img {
+    width: 90% !important;
+  }
+
+  .work-project--traft .work-project__visual img,
+  .work-project--beauty .work-project__visual img,
+  .work-project--hydroponic .work-project__visual img {
+    width: 90% !important;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE — SMALL TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .work-section {
+    padding: 80px 28px 100px;
+  }
+
+  .work-header {
+    align-items: flex-end;
+    gap: 30px;
+  }
+
+  .work-heading {
+    max-width: 580px;
+  }
+
+  .work-heading h2 {
+    font-size: clamp(2.7rem, 6vw, 4rem);
+  }
+
+  .work-heading p {
+    font-size: 13px;
+  }
+
+  .work-all-link {
+    flex-shrink: 0;
+  }
+
+  .work-project {
+    min-height: 380px;
+  }
+
+  .work-project__content {
+    padding-left: 20px;
+  }
+
+  .work-project--hydroponic .work-project__content {
+    padding-left: 20px;
+  }
+
+  .work-project h3 {
+    font-size: 1.8rem;
+  }
+
+  .work-project__tagline {
+    font-size: 14px;
+  }
+
+  .work-project__description {
+    max-width: 360px;
+    font-size: 11px;
+  }
+
+  .work-tech {
+    min-height: 28px;
+    padding: 0 11px;
+    font-size: 10px;
+  }
+
+  .work-project__visual img {
+    width: 95% !important;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .work-section {
+    padding: 75px 20px 90px;
+  }
+
+  .work-container {
+    width: 100%;
+  }
+
+  /* Header */
+
+  .work-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+    margin-bottom: 35px;
+  }
+
+  .work-heading {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .work-eyebrow {
+    gap: 14px;
+    margin-bottom: 22px;
+    font-size: 9px;
+    letter-spacing: 0.22em;
+  }
+
+  .work-eyebrow span:first-child {
+    width: 32px;
+  }
+
+  .work-heading h2 {
+    max-width: 100%;
+    font-size: clamp(2.8rem, 11vw, 4.5rem);
+    line-height: 0.92;
+    letter-spacing: -0.065em;
+  }
+
+  .work-heading p {
+    margin-top: 16px;
+    max-width: 520px;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .work-desktop-break {
+    display: none;
+  }
+
+  .work-all-link {
+    min-width: 150px;
+    height: 44px;
+    padding: 0 14px;
+  }
+
+  /* Projects */
+
+  .work-projects {
+    width: 100%;
+  }
+
+  .work-project {
+    display: flex;
+    flex-direction: column;
+    min-height: auto;
+    padding: 50px 0;
+    gap: 32px;
+  }
+
+  .work-project__content {
+    width: 100%;
+    padding-left: 0;
+  }
+
+  .work-project__meta {
+    gap: 13px;
+    margin-bottom: 16px;
+  }
+
+  .work-project__meta-line {
+    width: 32px;
+  }
+
+  .work-project__category {
+    font-size: 8px;
+    letter-spacing: 0.18em;
+  }
+
+  .work-project h3 {
+    font-size: clamp(2.7rem, 12vw, 4rem);
+    line-height: 0.92;
+  }
+
+  .work-project__tagline {
+    margin-top: 10px;
+    font-size: 16px;
+  }
+
+  .work-project__description {
+    max-width: 100%;
+    margin: 14px 0 18px;
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  .work-technologies {
+    gap: 7px;
+    margin-bottom: 20px;
+  }
+
+  .work-tech {
+    min-height: 29px;
+    padding: 0 11px;
+    font-size: 10px;
+  }
+
+  /* Artwork */
+
+  .work-project__visual {
+    width: 100%;
+    min-height: 220px;
+    margin: 0 !important;
+    transform: none !important;
+  }
+
+  .work-project__visual img {
+    width: 100% !important;
+    max-width: 620px;
+    height: auto;
+    transform: none !important;
+  }
+
+  /* Freight */
+
+  .work-project--traft {
+    display: flex;
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .work-project--traft .work-project__visual {
+    order: 2;
+  }
+
+  .work-project--traft .work-project__visual img {
+    width: 100% !important;
+  }
+
+  /* Smile Beauty */
+
+  .work-project--beauty {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 42px 22px;
+    gap: 30px;
+    border-radius: 28px;
+  }
+
+  .work-project--beauty .work-project__content {
+    order: 1;
+    padding-left: 0;
+  }
+
+  .work-project--beauty .work-project__visual {
+    order: 2;
+    height: auto;
+  }
+
+  .work-project--beauty .work-project__visual img {
+    width: 100% !important;
+    transform: none;
+  }
+
+  /* Hydroponic */
+
+  .work-project--hydroponic {
+    display: flex;
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .work-project--hydroponic .work-project__content {
+    order: 1;
+    padding-left: 0;
+  }
+
+  .work-project--hydroponic .work-project__visual {
+    order: 2;
+    margin: 0 !important;
+  }
+
+  .work-project--hydroponic .work-project__visual img {
+    width: 100% !important;
+    transform: none;
+  }
+
+  /* Separation */
+
+  .work-project:not(:last-child)::after {
+    left: 5%;
+    right: 5%;
+  }
+
+  /* Background */
+
+  .work-grid {
+    background-size: 55px 55px;
+    opacity: 0.22;
+  }
+
+  .work-energy {
+    opacity: 0.72;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE — SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+  .work-section {
+    padding: 65px 16px 75px;
+  }
+
+  .work-header {
+    gap: 24px;
+    margin-bottom: 25px;
+  }
+
+  .work-eyebrow {
+    gap: 11px;
+    margin-bottom: 20px;
+    font-size: 8px;
+    letter-spacing: 0.2em;
+  }
+
+  .work-eyebrow span:first-child {
+    width: 26px;
+  }
+
+  .work-heading h2 {
+    font-size: clamp(2.55rem, 13vw, 3.7rem);
+    line-height: 0.9;
+  }
+
+  .work-heading p {
+    margin-top: 14px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .work-all-link {
+    min-width: 145px;
+    height: 42px;
+    font-size: 8px;
+  }
+
+  /* Projects */
+
+  .work-project {
+    padding: 42px 0;
+    gap: 24px;
+  }
+
+  .work-project__meta {
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  .work-project__meta-line {
+    width: 26px;
+  }
+
+  .work-project__category {
+    font-size: 7px;
+    letter-spacing: 0.15em;
+  }
+
+  .work-project h3 {
+    font-size: clamp(2.35rem, 14vw, 3.4rem);
+    line-height: 0.9;
+  }
+
+  .work-project__tagline {
+    margin-top: 9px;
+    font-size: 15px;
+  }
+
+  .work-project__description {
+    margin: 13px 0 17px;
+    font-size: 12px;
+    line-height: 1.55;
+  }
+
+  .work-technologies {
+    gap: 6px;
+    margin-bottom: 18px;
+  }
+
+  .work-tech {
+    min-height: 27px;
+    padding: 0 9px;
+    font-size: 9px;
+  }
+
+  .work-case-link {
+    gap: 12px;
+    font-size: 7px;
+  }
+
+  .work-case-link__icon {
+    width: 31px;
+    height: 31px;
+    font-size: 15px;
+  }
+
+  /* Artwork */
+
+  .work-project__visual {
+    min-height: 170px;
+  }
+
+  .work-project__visual img {
+    width: 108% !important;
+    max-width: none;
+  }
+
+  /* Smile Beauty */
+
+  .work-project--beauty {
+    padding: 34px 16px;
+    border-radius: 22px;
+    gap: 24px;
+  }
+
+  .work-project--beauty .work-project__visual img {
+    width: 108% !important;
+    max-width: none;
+  }
+
+  /* Background */
+
+  .work-grid {
+    background-size: 45px 45px;
+    opacity: 0.18;
+  }
+
+  .work-energy {
+    opacity: 0.58;
+  }
+}
+
+/* =========================================================
+   EXTRA SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 360px) {
+  .work-section {
+    padding-left: 13px;
+    padding-right: 13px;
+  }
+
+  .work-heading h2 {
+    font-size: 2.45rem;
+  }
+
+  .work-heading p {
+    font-size: 12px;
+  }
+
+  .work-project {
+    padding: 36px 0;
+  }
+
+  .work-project h3 {
+    font-size: 2.3rem;
+  }
+
+  .work-project__description {
+    font-size: 11.5px;
+  }
+
+  .work-tech {
+    padding: 0 8px;
+    font-size: 8.5px;
+  }
+
+  .work-project--beauty {
+    padding: 30px 13px;
+  }
+}
+
+/* =========================================================
+   LANDSCAPE PHONES
+   ========================================================= */
+
+@media (max-width: 900px) and (orientation: landscape) {
+  .work-section {
+    padding-top: 65px;
+    padding-bottom: 75px;
+  }
+
+  .work-project {
+    display: grid;
+    grid-template-columns: 45% 55%;
+    min-height: 360px;
+    padding: 40px 0;
+    gap: 0;
+  }
+
+  .work-project__content {
+    padding-left: 15px;
+  }
+
+  .work-project__visual {
+    min-height: 0;
+  }
+
+  .work-project__visual img {
+    width: 100% !important;
+  }
+
+  .work-project--beauty .work-project__content {
+    grid-column: 2;
+    grid-row: 1;
+    padding-left: 15px;
+  }
+
+  .work-project--beauty .work-project__visual {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .work-project--hydroponic .work-project__content {
+    padding-left: 15px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .work-energy {
+    display: none;
+  }
+
+  .work-project__visual img,
+  .work-all-link,
+  .work-case-link__icon {
+    transition: none;
+  }
+}
+.work-technologies {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.work-tech {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 11px;
+  border: 1px solid rgba(20, 20, 20, 0.12);
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: #181818;
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.work-tech__icon {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+.work-tech__icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+/* React */
+.work-tech--react .work-tech__icon {
+  color: #61dafb;
+}
+
+/* Spring Boot */
+.work-tech--spring-boot .work-tech__icon {
+  color: #6db33f;
+}
+
+/* PostgreSQL */
+.work-tech--postgresql .work-tech__icon {
+  color: #4169e1;
+}
+
+/* MySQL */
+.work-tech--mysql .work-tech__icon {
+  color: #4479a1;
+}
+.work-tech--node-js .work-tech__icon {
+  color: #339933;
+}
+.work-tech--mongodb .work-tech__icon {
+  color: #47a248;
+}
+.work-tech {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 11px;
+  border: 1px solid rgba(20, 20, 20, 0.12);
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: #181818;
+  background: rgba(255, 255, 255, 0.45);
+
+  transition:
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.work-tech__icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.work-tech:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(20, 20, 20, 0.22);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.work-tech:hover .work-tech__icon {
+  transform: scale(1.15);
+}
+/* =========================================================
+   PROJECT IMAGE HOVER
+   ========================================================= */
+
+.work-project__visual {
+  position: relative;
+  transition:
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.6s ease;
+}
+
+.work-project__visual img {
+  transition:
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.5s ease;
+}
+
+/* Image hover */
+.work-project:hover .work-project__visual {
+  transform: translateY(-8px);
+  filter: drop-shadow(0 20px 28px rgba(0, 0, 0, 0.14));
+}
+
+.work-project:hover .work-project__visual img {
+  transform: scale(1.08) !important;
+  filter: brightness(1.05) saturate(1.08);
+}

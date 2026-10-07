@@ -1,0 +1,43 @@
+:root {
+  /* Core brand colors */
+  --color-ink: #171817;
+  --color-paper: #f3f2ed;
+  --color-white: #ffffff;
+  --color-muted: #777a75;
+  --color-line: rgba(23, 24, 23, 0.14);
+
+  /* Accent */
+  --color-accent: #d5f36a;
+  --color-accent-ink: #171817;
+
+  /* Page-specific surfaces */
+  --surface-light: #f3f2ed;
+  --surface-dark: #171817;
+  --surface-soft: #e8e9e1;
+
+  /* Typography */
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Manrope", sans-serif;
+
+  /* Layout */
+  --page-gutter: clamp(1.25rem, 5vw, 5.5rem);
+  --content-width: 1440px;
+
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --space-xl: 7rem;
+  --space-2xl: 10rem;
+
+  /* Shape */
+  --radius-small: 8px;
+  --radius-medium: 16px;
+  --radius-large: 28px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 180ms;
+  --duration-normal: 350ms;
+}

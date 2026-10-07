@@ -1,0 +1,1249 @@
+/* =========================================================
+   CONTACT MODAL
+========================================================= */
+
+.contact-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  font-family: inherit;
+}
+
+/* =========================================================
+   BACKDROP
+========================================================= */
+
+.contact-modal__backdrop {
+  position: absolute;
+  inset: 0;
+
+  background: rgba(3, 7, 6, 0.82);
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  animation: contactBackdropIn 0.3s ease forwards;
+}
+
+/* =========================================================
+   MODAL CONTAINER
+========================================================= */
+
+.contact-modal__container {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+
+  width: min(900px, 100%);
+  max-height: calc(100vh - 50px);
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 10% 90%,
+      rgba(22, 163, 74, 0.07),
+      transparent 32%
+    ),
+    #0b1010;
+
+  border: 1px solid rgba(180, 195, 190, 0.22);
+  border-radius: 11px;
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.65),
+    0 0 50px rgba(22, 163, 74, 0.04);
+
+  animation: contactModalIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* =========================================================
+   CLOSE BUTTON
+========================================================= */
+
+.contact-modal__close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+
+  z-index: 10;
+
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.025);
+
+  color: rgba(255, 255, 255, 0.72);
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.contact-modal__close:hover {
+  background: rgba(22, 163, 74, 0.13);
+
+  border-color: rgba(34, 197, 94, 0.5);
+
+  color: #ffffff;
+
+  transform: rotate(90deg);
+}
+
+/* =========================================================
+   LEFT / INTRO
+========================================================= */
+
+.contact-modal__intro {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 30px 32px 28px;
+
+  border-right: 1px solid rgba(255, 255, 255, 0.09);
+
+  overflow: hidden;
+}
+
+/* =========================================================
+   SUBTLE GREEN GLOW
+========================================================= */
+
+.contact-modal__intro::after {
+  content: "";
+
+  position: absolute;
+
+  width: 220px;
+  height: 220px;
+
+  right: -120px;
+  bottom: -130px;
+
+  border-radius: 50%;
+
+  background: rgba(22, 163, 74, 0.1);
+
+  filter: blur(45px);
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.contact-modal__brand {
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 48px;
+}
+
+.contact-modal__brand-main {
+  font-size: 17px;
+  font-weight: 500;
+
+  letter-spacing: 0.25em;
+  line-height: 1;
+
+  color: #f1f5f3;
+}
+
+.contact-modal__brand-sub {
+  margin-top: 5px;
+
+  font-size: 6px;
+  font-weight: 500;
+
+  letter-spacing: 0.3em;
+
+  color: rgba(255, 255, 255, 0.43);
+}
+
+/* =========================================================
+   EYEBROW
+========================================================= */
+
+.contact-modal__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  margin-bottom: 16px;
+
+  font-size: 8px;
+  font-weight: 600;
+
+  letter-spacing: 0.21em;
+
+  color: #22c55e;
+}
+
+.contact-modal__eyebrow span {
+  width: 28px;
+  height: 1px;
+
+  background: #22c55e;
+}
+
+/* =========================================================
+   MAIN HEADING
+========================================================= */
+
+.contact-modal__intro h2 {
+  position: relative;
+  z-index: 1;
+
+  margin: 0;
+
+  font-size: clamp(30px, 3vw, 43px);
+  font-weight: 500;
+
+  line-height: 1;
+  letter-spacing: -0.045em;
+
+  color: #f3f6f5;
+}
+
+.contact-modal__intro h2 span {
+  color: #22c55e;
+}
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.contact-modal__description {
+  position: relative;
+  z-index: 1;
+
+  max-width: 310px;
+
+  margin: 19px 0 0;
+
+  font-size: 11px;
+  line-height: 1.6;
+
+  color: rgba(225, 233, 229, 0.58);
+}
+
+/* =========================================================
+   CONTACT DETAILS
+========================================================= */
+
+.contact-modal__details {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+
+  margin-top: 23px;
+}
+
+.contact-modal__details a {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  width: fit-content;
+
+  text-decoration: none;
+
+  color: inherit;
+}
+
+/* =========================================================
+   DETAIL ICON
+========================================================= */
+
+.contact-modal__detail-icon {
+  width: 31px;
+  height: 31px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border: 1px solid rgba(34, 197, 94, 0.4);
+  border-radius: 6px;
+
+  color: #22c55e;
+
+  background: rgba(34, 197, 94, 0.03);
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.contact-modal__details a:hover .contact-modal__detail-icon {
+  background: rgba(34, 197, 94, 0.1);
+
+  border-color: rgba(34, 197, 94, 0.7);
+}
+
+/* =========================================================
+   DETAIL TEXT
+========================================================= */
+
+.contact-modal__detail-content {
+  display: flex;
+  flex-direction: column;
+
+  gap: 2px;
+}
+
+.contact-modal__detail-content small {
+  font-size: 8px;
+
+  letter-spacing: 0.07em;
+
+  color: rgba(255, 255, 255, 0.38);
+}
+
+.contact-modal__detail-content strong {
+  font-size: 10px;
+  font-weight: 400;
+
+  color: rgba(255, 255, 255, 0.78);
+}
+
+/* =========================================================
+   VENTURE
+========================================================= */
+
+.contact-modal__venture {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  margin-top: auto;
+
+  padding-top: 22px;
+}
+
+.contact-modal__venture-line {
+  width: 2px;
+  height: 29px;
+
+  background: #22c55e;
+}
+
+.contact-modal__venture div {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.contact-modal__venture strong {
+  font-size: 7px;
+  font-weight: 600;
+
+  letter-spacing: 0.17em;
+
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.contact-modal__venture small {
+  font-size: 8px;
+
+  color: rgba(255, 255, 255, 0.35);
+}
+
+/* =========================================================
+   FORM SIDE
+========================================================= */
+
+.contact-modal__form-wrapper {
+  min-width: 0;
+
+  padding: 50px 34px 27px;
+
+  overflow-y: auto;
+}
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.contact-modal__form {
+  display: flex;
+  flex-direction: column;
+
+  gap: 14px;
+}
+
+/* =========================================================
+   FORM ROW
+========================================================= */
+
+.contact-modal__row {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 14px;
+}
+
+/* =========================================================
+   FIELD
+========================================================= */
+
+.contact-modal__field {
+  display: flex;
+  flex-direction: column;
+
+  gap: 6px;
+}
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+.contact-modal__field label {
+  display: flex;
+  align-items: center;
+
+  gap: 5px;
+
+  font-size: 9px;
+  font-weight: 400;
+
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.contact-modal__field label svg {
+  width: 12px;
+  height: 12px;
+
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.contact-modal__field label span {
+  color: #22c55e;
+}
+
+/* =========================================================
+   INPUT / TEXTAREA
+========================================================= */
+
+.contact-modal__field input,
+.contact-modal__field textarea {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  border: 1px solid rgba(170, 185, 180, 0.18);
+  border-radius: 5px;
+
+  outline: none;
+
+  background: rgba(255, 255, 255, 0.032);
+
+  color: #edf3f0;
+
+  font-family: inherit;
+
+  font-size: 10px;
+
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* =========================================================
+   INPUT
+========================================================= */
+
+.contact-modal__field input {
+  height: 43px;
+
+  padding: 0 12px;
+}
+
+/* =========================================================
+   TEXTAREA
+========================================================= */
+
+.contact-modal__field textarea {
+  min-height: 92px;
+
+  padding: 11px 12px;
+
+  resize: vertical;
+}
+
+/* =========================================================
+   PLACEHOLDER
+========================================================= */
+
+.contact-modal__field input::placeholder,
+.contact-modal__field textarea::placeholder {
+  color: rgba(255, 255, 255, 0.26);
+}
+
+/* =========================================================
+   FOCUS
+========================================================= */
+
+.contact-modal__field input:focus,
+.contact-modal__field textarea:focus {
+  border-color: rgba(34, 197, 94, 0.6);
+
+  background: rgba(34, 197, 94, 0.022);
+
+  box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.055);
+}
+
+/* =========================================================
+   CUSTOM SERVICE DROPDOWN
+========================================================= */
+
+.contact-modal__custom-select {
+  position: relative;
+
+  width: 100%;
+}
+
+/* =========================================================
+   SELECT TRIGGER
+========================================================= */
+
+.contact-modal__select-trigger {
+  width: 100%;
+  height: 43px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 12px;
+
+  border: 1px solid rgba(170, 185, 180, 0.18);
+  border-radius: 5px;
+
+  outline: none;
+
+  background: rgba(255, 255, 255, 0.032);
+
+  color: #edf3f0;
+
+  font-family: inherit;
+  font-size: 10px;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.contact-modal__select-trigger:hover {
+  border-color: rgba(255, 255, 255, 0.27);
+}
+
+.contact-modal__select-trigger.is-open {
+  border-color: rgba(34, 197, 94, 0.6);
+
+  background: rgba(34, 197, 94, 0.022);
+
+  box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.055);
+}
+
+/* =========================================================
+   SELECT VALUE
+========================================================= */
+
+.contact-modal__select-placeholder {
+  color: rgba(255, 255, 255, 0.27);
+}
+
+.contact-modal__select-value {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+/* =========================================================
+   SELECT ARROW
+========================================================= */
+
+.contact-modal__select-chevron {
+  flex-shrink: 0;
+
+  width: 14px;
+  height: 14px;
+
+  color: #22c55e;
+
+  transition: transform 0.25s ease;
+}
+
+.contact-modal__select-trigger.is-open .contact-modal__select-chevron {
+  transform: rotate(180deg);
+}
+
+/* =========================================================
+   OPTIONS PANEL
+========================================================= */
+
+.contact-modal__options {
+  position: absolute;
+
+  top: calc(100% + 5px);
+  left: 0;
+  right: 0;
+
+  z-index: 100;
+
+  padding: 4px;
+
+  border: 1px solid rgba(170, 185, 180, 0.18);
+  border-radius: 6px;
+
+  background: #111817;
+
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+
+  animation: serviceDropdownIn 0.16s ease forwards;
+}
+
+/* =========================================================
+   OPTION
+========================================================= */
+
+.contact-modal__option {
+  width: 100%;
+  min-height: 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 9px;
+
+  border: none;
+  border-radius: 4px;
+
+  background: transparent;
+
+  color: rgba(255, 255, 255, 0.62);
+
+  font-family: inherit;
+  font-size: 9px;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.contact-modal__option:hover {
+  background: rgba(34, 197, 94, 0.08);
+
+  color: #ffffff;
+}
+
+.contact-modal__option.is-selected {
+  background: rgba(34, 197, 94, 0.1);
+
+  color: #22c55e;
+}
+
+.contact-modal__option svg {
+  width: 13px;
+  height: 13px;
+
+  color: #22c55e;
+}
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.contact-modal__error {
+  padding: 8px 10px;
+
+  border: 1px solid rgba(239, 68, 68, 0.28);
+  border-radius: 4px;
+
+  background: rgba(239, 68, 68, 0.055);
+
+  font-size: 9px;
+
+  color: #fca5a5;
+}
+
+/* =========================================================
+   SUBMIT BUTTON
+========================================================= */
+
+.contact-modal__submit {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  height: 48px;
+
+  margin-top: 2px;
+
+  padding: 0 8px 0 17px;
+
+  border: 1px solid #22c55e;
+  border-radius: 5px;
+
+  background: #22c55e;
+
+  color: #031008;
+
+  font-family: inherit;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 0.13em;
+
+  cursor: pointer;
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.contact-modal__submit:hover:not(:disabled) {
+  background: #2ee66d;
+
+  border-color: #2ee66d;
+
+  transform: translateY(-1px);
+
+  box-shadow: 0 8px 22px rgba(34, 197, 94, 0.16);
+}
+
+.contact-modal__submit:disabled {
+  opacity: 0.6;
+
+  cursor: wait;
+}
+
+/* =========================================================
+   SUBMIT ICON
+========================================================= */
+
+.contact-modal__submit-icon {
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 4px;
+
+  background: rgba(0, 0, 0, 0.12);
+}
+
+/* =========================================================
+   NOTE
+========================================================= */
+
+.contact-modal__note {
+  margin: -5px 0 0;
+
+  text-align: center;
+
+  font-size: 8px;
+
+  color: rgba(255, 255, 255, 0.28);
+}
+
+/* =========================================================
+   SUCCESS STATE
+========================================================= */
+
+.contact-modal__success {
+  min-height: 350px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* =========================================================
+   SUCCESS ICON
+========================================================= */
+
+.contact-modal__success-icon {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 20px;
+
+  border: 1px solid rgba(34, 197, 94, 0.45);
+  border-radius: 50%;
+
+  background: rgba(34, 197, 94, 0.07);
+
+  color: #22c55e;
+
+  font-size: 20px;
+}
+
+/* =========================================================
+   SUCCESS EYEBROW
+========================================================= */
+
+.contact-modal__success-eyebrow {
+  margin-bottom: 11px;
+
+  font-size: 8px;
+  font-weight: 600;
+
+  letter-spacing: 0.18em;
+
+  color: #22c55e;
+}
+
+/* =========================================================
+   SUCCESS HEADING
+========================================================= */
+
+.contact-modal__success h3 {
+  margin: 0;
+
+  font-size: 30px;
+  font-weight: 500;
+
+  line-height: 1;
+
+  letter-spacing: -0.04em;
+
+  color: #f2f5f4;
+}
+
+/* =========================================================
+   SUCCESS TEXT
+========================================================= */
+
+.contact-modal__success p {
+  max-width: 340px;
+
+  margin: 15px 0 23px;
+
+  font-size: 11px;
+
+  line-height: 1.6;
+
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* =========================================================
+   SUCCESS BUTTON
+========================================================= */
+
+.contact-modal__success-button {
+  height: 40px;
+
+  padding: 0 18px;
+
+  border: 1px solid rgba(34, 197, 94, 0.55);
+  border-radius: 4px;
+
+  background: transparent;
+
+  color: #22c55e;
+
+  font-family: inherit;
+
+  font-size: 8px;
+  font-weight: 600;
+
+  letter-spacing: 0.15em;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+.contact-modal__success-button:hover {
+  background: #22c55e;
+
+  color: #031008;
+}
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes contactBackdropIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes contactModalIn {
+  from {
+    opacity: 0;
+
+    transform: translateY(14px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes serviceDropdownIn {
+  from {
+    opacity: 0;
+
+    transform: translateY(-4px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 850px) {
+  .contact-modal {
+    padding: 15px;
+  }
+
+  .contact-modal__container {
+    grid-template-columns: 1fr;
+
+    max-height: calc(100vh - 30px);
+
+    overflow-y: auto;
+  }
+
+  /* LEFT */
+
+  .contact-modal__intro {
+    padding: 27px 28px 25px;
+
+    border-right: none;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .contact-modal__brand {
+    margin-bottom: 38px;
+  }
+
+  .contact-modal__intro h2 {
+    font-size: 35px;
+  }
+
+  .contact-modal__description {
+    max-width: 420px;
+  }
+
+  .contact-modal__venture {
+    margin-top: 25px;
+  }
+
+  /* FORM */
+
+  .contact-modal__form-wrapper {
+    padding: 30px 28px 28px;
+
+    overflow: visible;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+  .contact-modal {
+    padding: 10px;
+  }
+
+  .contact-modal__container {
+    width: 100%;
+
+    max-height: calc(100vh - 20px);
+
+    border-radius: 9px;
+  }
+
+  /* CLOSE */
+
+  .contact-modal__close {
+    top: 11px;
+    right: 11px;
+
+    width: 29px;
+    height: 29px;
+  }
+
+  /* INTRO */
+
+  .contact-modal__intro {
+    padding: 23px 19px 21px;
+  }
+
+  .contact-modal__brand {
+    margin-bottom: 34px;
+  }
+
+  .contact-modal__brand-main {
+    font-size: 15px;
+  }
+
+  .contact-modal__brand-sub {
+    font-size: 5px;
+  }
+
+  .contact-modal__eyebrow {
+    margin-bottom: 13px;
+
+    font-size: 7px;
+  }
+
+  .contact-modal__eyebrow span {
+    width: 23px;
+  }
+
+  .contact-modal__intro h2 {
+    font-size: 31px;
+  }
+
+  .contact-modal__description {
+    margin-top: 16px;
+
+    font-size: 10px;
+  }
+
+  .contact-modal__details {
+    margin-top: 20px;
+
+    gap: 9px;
+  }
+
+  .contact-modal__detail-icon {
+    width: 29px;
+    height: 29px;
+  }
+
+  .contact-modal__detail-content small {
+    font-size: 7px;
+  }
+
+  .contact-modal__detail-content strong {
+    font-size: 9px;
+  }
+
+  .contact-modal__venture {
+    margin-top: 22px;
+
+    padding-top: 19px;
+  }
+
+  .contact-modal__venture strong {
+    font-size: 6px;
+  }
+
+  .contact-modal__venture small {
+    font-size: 7px;
+  }
+
+  /* FORM */
+
+  .contact-modal__form-wrapper {
+    padding: 25px 19px 23px;
+  }
+
+  .contact-modal__form {
+    gap: 12px;
+  }
+
+  .contact-modal__row {
+    grid-template-columns: 1fr;
+
+    gap: 12px;
+  }
+
+  .contact-modal__field {
+    gap: 5px;
+  }
+
+  .contact-modal__field label {
+    font-size: 8px;
+  }
+
+  .contact-modal__field label svg {
+    width: 11px;
+    height: 11px;
+  }
+
+  .contact-modal__field input {
+    height: 41px;
+
+    padding: 0 11px;
+
+    font-size: 10px;
+  }
+
+  .contact-modal__field textarea {
+    min-height: 85px;
+
+    padding: 10px 11px;
+
+    font-size: 10px;
+  }
+
+  .contact-modal__select-trigger {
+    height: 41px;
+
+    padding: 0 11px;
+
+    font-size: 10px;
+  }
+
+  .contact-modal__option {
+    min-height: 33px;
+
+    font-size: 9px;
+  }
+
+  .contact-modal__submit {
+    height: 45px;
+
+    padding-left: 15px;
+
+    font-size: 8px;
+  }
+
+  .contact-modal__submit-icon {
+    width: 29px;
+    height: 29px;
+  }
+
+  .contact-modal__note {
+    font-size: 7px;
+  }
+
+  /* SUCCESS */
+
+  .contact-modal__success {
+    min-height: 300px;
+  }
+
+  .contact-modal__success-icon {
+    width: 44px;
+    height: 44px;
+
+    font-size: 18px;
+  }
+
+  .contact-modal__success h3 {
+    font-size: 26px;
+  }
+
+  .contact-modal__success p {
+    font-size: 10px;
+  }
+}
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+  .contact-modal__intro h2 {
+    font-size: 28px;
+  }
+
+  .contact-modal__brand {
+    margin-bottom: 29px;
+  }
+
+  .contact-modal__description {
+    font-size: 9px;
+  }
+
+  .contact-modal__form-wrapper {
+    padding: 22px 16px 20px;
+  }
+
+  .contact-modal__field input {
+    height: 39px;
+  }
+
+  .contact-modal__select-trigger {
+    height: 39px;
+  }
+
+  .contact-modal__field textarea {
+    min-height: 78px;
+  }
+
+  .contact-modal__submit {
+    height: 43px;
+  }
+}

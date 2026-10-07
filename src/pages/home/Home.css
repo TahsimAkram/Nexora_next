@@ -1,0 +1,7 @@
+.home-page {
+  --home-ink: #171817;
+  --home-paper: #f3f2ed;
+  --home-accent: #d5f36a;
+  color: var(--home-ink);
+  background: var(--home-paper);
+}
