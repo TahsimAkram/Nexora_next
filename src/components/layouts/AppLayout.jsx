@@ -1,3 +1,4 @@
+import Footer from "../Footer/Footer";
 import Navbar from "../navigation/Navbar";
 import "./AppLayout.css";
 
@@ -7,6 +8,7 @@ export default function AppLayout({ children, onOpenContact }) {
       <Navbar onOpenContact={onOpenContact} />
 
       <main className="app-main">{children}</main>
+      <Footer />
     </div>
   );
 }

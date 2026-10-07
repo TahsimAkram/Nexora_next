@@ -49,9 +49,6 @@ export default function Home({ onOpenContact }) {
       <Work />
       <Testimonials />
       <ContactCTA onOpenContact={onOpenContact} />
-      <Footer />
-      {/* <WorkExhibition />
-      <Process /> */}
     </div>
   );
 }

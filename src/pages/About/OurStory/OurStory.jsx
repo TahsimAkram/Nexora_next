@@ -1,18 +1,22 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import { Box, Users, Star, ChartNoAxesCombined } from "lucide-react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import "./OurStory.css";
 
 // Use your existing mountain asset.
-import mountainImage from "../../../assets/mountain.png";
+import mountainImage from "../../../assets/mountains.png";
+
+import { Box, Users, Star, ChartNoAxesCombined } from "lucide-react";
+import ParticleBackground from "../../../components/ParticleBackground/ParticleBackground";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const milestones = [
   {
     year: "2020",
     title: "A Vision",
     text: "The beginning of a bigger possibility.",
-    active: true,
   },
   {
     year: "2022",
@@ -28,32 +32,33 @@ const milestones = [
     year: "Today",
     title: "A Digital Studio",
     text: "Continuing to innovate and create impact.",
+    active: true,
   },
 ];
 
-const metrics = [
+const stats = [
   {
-    value: "50+",
+    value: "150+",
     label: "PROJECTS DELIVERED",
-    text: "Across industries and geographies.",
+    description: "Across industries and geographies.",
     icon: Box,
   },
   {
     value: "30+",
     label: "HAPPY CLIENTS",
-    text: "Businesses that trust us.",
+    description: "Businesses that trust us.",
     icon: Users,
   },
   {
     value: "5+",
     label: "YEARS OF EXPERIENCE",
-    text: "A consistent track record of growth.",
+    description: "A consistent track record of growth.",
     icon: Star,
   },
   {
     value: "98%",
     label: "CLIENT SATISFACTION",
-    text: "Long-term partnerships.",
+    description: "Long-term partnerships.",
     icon: ChartNoAxesCombined,
   },
 ];
@@ -73,88 +78,192 @@ export default function OurStory() {
     if (reducedMotion) return undefined;
 
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
+      // ========================================================
+      // MASTER SCROLL TIMELINE
+      // ========================================================
+
+      const reveal = gsap.timeline({
         scrollTrigger: {
           trigger: section,
-          start: "top 72%",
-          once: true,
+          start: "top 75%",
+          end: "bottom 80%",
+          toggleActions: "play none none reverse",
         },
+
         defaults: {
           ease: "power3.out",
         },
       });
 
-      tl.from(".story-eyebrow", {
-        y: 20,
-        opacity: 0,
-        duration: 0.55,
-      })
+      reveal
+        .from(".story-eyebrow", {
+          y: 25,
+          opacity: 0,
+          duration: 0.65,
+        })
+
         .from(
           ".story-title-line",
           {
-            y: 35,
+            yPercent: 100,
             opacity: 0,
-            duration: 0.8,
-            stagger: 0.1,
+            duration: 0.85,
+            stagger: 0.12,
           },
-          "-=0.25",
+          "-=0.3",
         )
+
         .from(
-          ".story-copy",
+          ".story-description p",
           {
-            y: 20,
+            y: 22,
             opacity: 0,
-            duration: 0.65,
+            duration: 0.6,
+            stagger: 0.14,
           },
-          "-=0.4",
+          "-=0.35",
         )
+
         .from(
           ".story-milestone",
           {
-            x: 25,
+            x: 35,
             opacity: 0,
             duration: 0.6,
-            stagger: 0.12,
+            stagger: 0.14,
           },
           "-=0.4",
         )
-        .from(
-          ".story-mountain",
-          {
-            scale: 1.06,
-            opacity: 0,
-            duration: 1.2,
-          },
-          "-=0.9",
-        )
+
         .from(
           ".story-stat",
           {
-            y: 30,
+            y: 35,
             opacity: 0,
-            duration: 0.55,
-            stagger: 0.1,
+            duration: 0.65,
+            stagger: 0.12,
           },
-          "-=0.6",
+          "-=0.25",
         );
 
-      // Very subtle mountain atmosphere movement.
-      gsap.to(".story-mountain-image", {
-        scale: 1.025,
-        duration: 8,
-        ease: "sine.inOut",
-        repeat: -1,
-        yoyo: true,
+      // ========================================================
+      // MOUNTAIN PARALLAX
+      // ========================================================
+
+      gsap.to(".story-mountain-bg", {
+        yPercent: 8,
+        scale: 1.06,
+
+        ease: "none",
+
+        scrollTrigger: {
+          trigger: section,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: 1.4,
+        },
       });
 
-      // Gentle glow breathing.
-      gsap.to(".story-mountain-glow", {
-        opacity: 0.9,
-        scale: 1.04,
-        duration: 5,
-        ease: "sine.inOut",
-        repeat: -1,
-        yoyo: true,
+      // ========================================================
+      // MOUNTAIN ATMOSPHERIC LIGHT
+      // ========================================================
+
+      gsap.to(".story-background-vignette", {
+        opacity: 0.72,
+
+        ease: "none",
+
+        scrollTrigger: {
+          trigger: section,
+          start: "top bottom",
+          end: "center center",
+          scrub: 1,
+        },
+      });
+
+      // ========================================================
+      // TIMELINE PROGRESS
+      // ========================================================
+
+      gsap.fromTo(
+        ".story-timeline-line",
+        {
+          scaleY: 0,
+          transformOrigin: "top center",
+        },
+        {
+          scaleY: 1,
+
+          ease: "none",
+
+          scrollTrigger: {
+            trigger: ".story-timeline",
+            start: "top 68%",
+            end: "bottom 55%",
+            scrub: 1,
+          },
+        },
+      );
+
+      // ========================================================
+      // MILESTONE DOT ACTIVATION
+      // ========================================================
+
+      const milestones = gsap.utils.toArray(".story-milestone");
+
+      milestones.forEach((milestone, index) => {
+        ScrollTrigger.create({
+          trigger: milestone,
+
+          start: "top 72%",
+
+          onEnter: () => {
+            gsap.to(milestone.querySelector(".story-milestone-dot"), {
+              scale: 1.35,
+              backgroundColor: "#86d92f",
+              borderColor: "#86d92f",
+              boxShadow: "0 0 16px rgba(134, 217, 47, 0.7)",
+              duration: 0.35,
+              ease: "power2.out",
+            });
+          },
+
+          onLeaveBack: () => {
+            // Keep the final "Today" milestone active.
+            if (index === milestones.length - 1) {
+              return;
+            }
+
+            gsap.to(milestone.querySelector(".story-milestone-dot"), {
+              scale: 1,
+              backgroundColor: "#071310",
+              borderColor: "rgba(72, 151, 114, 0.8)",
+              boxShadow: "0 0 0 3px rgba(35, 236, 178, 0.025)",
+              duration: 0.3,
+            });
+          },
+        });
+      });
+
+      // ========================================================
+      // STAT NUMBER REVEAL
+      // ========================================================
+
+      gsap.from(".story-stat-value", {
+        scale: 0.86,
+        opacity: 0,
+
+        duration: 0.65,
+
+        stagger: 0.12,
+
+        ease: "back.out(1.5)",
+
+        scrollTrigger: {
+          trigger: ".story-stats",
+          start: "top 85%",
+          toggleActions: "play none none reverse",
+        },
       });
     }, section);
 
@@ -163,16 +272,34 @@ export default function OurStory() {
 
   return (
     <section ref={sectionRef} className="our-story">
-      <div className="story-atmosphere" />
+      {/* =====================================================
+          FULL-BLEED MOUNTAIN BACKGROUND
+      ====================================================== */}
 
-      {/* ======================================================
-          STORY CONTENT
-      ======================================================= */}
+      <div className="story-background">
+        <img
+          className="story-mountain-bg"
+          src={mountainImage}
+          alt=""
+          draggable="false"
+        />
 
-      <div className="story-main">
-        <div className="story-copy-column">
+        <div className="story-background-overlay" />
+
+        <div className="story-background-vignette" />
+      </div>
+      <ParticleBackground variant="story" />
+
+      {/* Same geometric language as HomeIntro */}
+
+      {/* =====================================================
+          STORY CONTENT OVER THE MOUNTAIN
+      ====================================================== */}
+
+      <div className="story-content">
+        <div className="story-copy">
           <div className="story-eyebrow">
-            <span />
+            <span className="story-eyebrow-line" />
             <span>OUR STORY</span>
           </div>
 
@@ -184,7 +311,7 @@ export default function OurStory() {
             </span>
           </h2>
 
-          <div className="story-copy">
+          <div className="story-description">
             <p>
               Nexora was founded with a simple belief — that great design and
               powerful technology can help businesses unlock new opportunities.
@@ -197,72 +324,53 @@ export default function OurStory() {
           </div>
         </div>
 
-        {/* ====================================================
-            MOUNTAIN VISUAL
-        ===================================================== */}
-
-        <div className="story-visual">
-          <div className="story-mountain-glow" />
-
-          <div className="story-mountain">
-            <img
-              className="story-mountain-image"
-              src={mountainImage}
-              alt="Nexora journey"
-              draggable="false"
-            />
-
-            <div className="story-road-glow" />
-          </div>
-        </div>
-
-        {/* ====================================================
-            TIMELINE
-        ===================================================== */}
+        {/* =================================================
+            TIMELINE — ALSO OVER THE IMAGE
+        ================================================== */}
 
         <div className="story-timeline">
-          <div className="timeline-line" />
+          <div className="story-timeline-line" />
 
-          {milestones.map((milestone) => (
+          {milestones.map((item) => (
             <div
-              key={milestone.year}
+              key={item.year}
               className={`story-milestone ${
-                milestone.active ? "is-active" : ""
+                item.active ? "story-milestone--active" : ""
               }`}
             >
-              <div className="milestone-marker" />
+              <span className="story-milestone-dot" />
 
-              <div className="milestone-content">
-                <span className="milestone-year">{milestone.year}</span>
+              <div className="story-milestone-content">
+                <span className="story-milestone-year">{item.year}</span>
 
-                <strong>{milestone.title}</strong>
+                <strong>{item.title}</strong>
 
-                <p>{milestone.text}</p>
+                <p>{item.text}</p>
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* ======================================================
-          STATS
-      ======================================================= */}
+      {/* =====================================================
+          BOTTOM METRICS
+      ====================================================== */}
 
       <div className="story-stats">
-        {metrics.map((metric) => {
-          const Icon = metric.icon;
+        {stats.map((stat) => {
+          const Icon = stat.icon;
 
           return (
-            <div className="story-stat" key={metric.label}>
+            <div key={stat.label} className="story-stat">
               <div className="story-stat-icon">
-                <Icon size={22} strokeWidth={1.6} />
+                <Icon size={21} strokeWidth={1.7} />
               </div>
 
-              <div className="story-stat-value">{metric.value}</div>
+              <div className="story-stat-value">{stat.value}</div>
 
-              <div className="story-stat-label">{metric.label}</div>
+              <div className="story-stat-label">{stat.label}</div>
 
-              <p>{metric.text}</p>
+              <p>{stat.description}</p>
             </div>
           );
         })}

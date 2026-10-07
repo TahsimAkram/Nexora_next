@@ -8,7 +8,7 @@
   --story-ink: #f4f8f3;
   --story-muted: #9aa8a1;
   --story-line: rgba(112, 137, 128, 0.18);
-  --story-green: #7ed52a;
+  --story-green: #83b900;
   --story-cyan: #29f4ba;
 
   position: relative;
@@ -417,7 +417,7 @@
 .story-stat-value {
   color: #f2f7f4;
 
-  font-size: clamp(2rem, 2.9vw, 3.2rem);
+  font-size: 2.8em;
 
   line-height: 1;
 
@@ -683,5 +683,621 @@
   .story-mountain-image,
   .story-mountain-glow {
     animation: none;
+  }
+}
+/* ============================================================
+   NEXORA — OUR STORY
+   Mountain background + content overlay
+   ============================================================ */
+
+.our-story {
+  --story-bg: #020908;
+  --story-text: #f2f7f4;
+  --story-muted: #9ba8a2;
+  --story-green: #89c302;
+  --story-cyan: #38e9be;
+  --story-border: rgba(168, 198, 185, 0.16);
+
+  position: relative;
+
+  width: 100%;
+
+  min-height: 100svh;
+
+  background: var(--story-bg);
+
+  color: var(--story-text);
+
+  overflow: hidden;
+
+  isolation: isolate;
+}
+
+/* ============================================================
+   MOUNTAIN BACKGROUND
+   ============================================================ */
+
+.story-background {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 0;
+
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+.story-mountain-bg {
+  position: absolute;
+
+  inset: -2%;
+
+  width: 60%;
+  height: 64%;
+
+  min-height: 560px;
+
+  object-fit: cover;
+
+  object-position: center center;
+
+  opacity: 0.96;
+  left: 19em;
+
+  top: 4em;
+  will-change: transform;
+}
+
+/* ============================================================
+   IMAGE OVERLAYS
+   ============================================================ */
+
+.story-background-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(1, 9, 8, 0.82) 0%,
+      rgba(1, 9, 8, 0.55) 24%,
+      rgba(1, 9, 8, 0.12) 53%,
+      rgba(1, 9, 8, 0.4) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(1, 9, 8, 0.18) 0%,
+      rgba(1, 9, 8, 0.02) 48%,
+      rgba(2, 9, 8, 1) 78%
+    );
+
+  z-index: 1;
+}
+
+.story-background-vignette {
+  position: absolute;
+
+  inset: 0;
+
+  background: radial-gradient(
+    ellipse at 55% 40%,
+    transparent 25%,
+    rgba(0, 8, 7, 0.32) 78%,
+    rgba(0, 5, 5, 0.75) 100%
+  );
+
+  z-index: 2;
+}
+
+/* ============================================================
+   PARTICLES
+   ============================================================ */
+
+.our-story .particle-background {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 3;
+
+  opacity: 0.45;
+
+  pointer-events: none;
+}
+
+/* ============================================================
+   MAIN CONTENT
+   ============================================================ */
+
+.story-content {
+  position: relative;
+
+  z-index: 5;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    270px;
+
+  align-items: center;
+
+  min-height: 69svh;
+
+  width: min(1500px, calc(100% - 10vw));
+
+  margin: 0 auto;
+
+  box-sizing: border-box;
+
+  column-gap: clamp(3rem, 8vw, 8rem);
+}
+
+/* ============================================================
+   LEFT TEXT
+   ============================================================ */
+
+.story-copy {
+  max-width: 470px;
+
+  padding-top: 1rem;
+}
+
+.story-eyebrow {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.75rem;
+
+  margin-bottom: 1.5rem;
+
+  color: var(--story-green);
+
+  font-size: 0.62rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.17em;
+
+  text-transform: uppercase;
+}
+
+.story-eyebrow-line {
+  width: 1.9rem;
+  height: 2px;
+
+  background: var(--story-green);
+}
+
+.story-title {
+  margin: 0;
+
+  font-family: var(--font-display, "Space Grotesk", sans-serif);
+
+  font-size: clamp(3rem, 4.2vw, 5rem);
+
+  line-height: 0.96;
+
+  font-weight: 620;
+
+  letter-spacing: -0.065em;
+}
+
+.story-title-line {
+  display: block;
+}
+
+.story-title em {
+  color: var(--story-green);
+
+  font-style: normal;
+}
+
+.story-description {
+  width: min(100%, 420px);
+
+  margin-top: 1.7rem;
+}
+
+.story-description p {
+  margin: 0 0 1rem;
+
+  color: var(--story-muted);
+
+  font-size: 0.8rem;
+
+  line-height: 1.65;
+}
+
+/* ============================================================
+   TIMELINE
+   ============================================================ */
+
+.story-timeline {
+  position: relative;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 1.55rem;
+
+  min-height: 330px;
+
+  padding-left: 3.15rem;
+  top: 3em;
+}
+
+.story-timeline-line {
+  position: absolute;
+
+  top: 0.35rem;
+  bottom: 0.35rem;
+
+  left: 50px;
+
+  width: 1px;
+
+  background: linear-gradient(
+    to bottom,
+    var(--story-green) 0%,
+    rgba(126, 217, 47, 0.18) 100%
+  );
+}
+
+.story-milestone {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns: 16px 1fr;
+
+  gap: 0.75rem;
+}
+
+.story-milestone-dot {
+  position: relative;
+
+  width: 9px;
+  height: 9px;
+
+  margin-left: -5px;
+  margin-top: 0.15rem;
+
+  border: 2px solid rgba(72, 151, 114, 0.8);
+
+  border-radius: 50%;
+
+  background: #071310;
+
+  box-shadow: 0 0 0 3px rgba(35, 236, 178, 0.025);
+}
+
+.story-milestone--active .story-milestone-dot {
+  border-color: var(--story-green);
+
+  background: var(--story-green);
+
+  box-shadow: 0 0 14px rgba(134, 217, 47, 0.65);
+}
+
+.story-milestone-content {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 0.15rem;
+}
+
+.story-milestone-year {
+  color: var(--story-green);
+
+  font-size: 0.65rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.05em;
+}
+
+.story-milestone-content strong {
+  color: #edf4f0;
+
+  font-size: 0.72rem;
+
+  font-weight: 700;
+}
+
+.story-milestone-content p {
+  max-width: 150px;
+
+  margin: 0;
+
+  color: #8a9791;
+
+  font-size: 0.59rem;
+
+  line-height: 1.4;
+}
+
+/* ============================================================
+   STATS
+   ============================================================ */
+
+.story-stats {
+  position: relative;
+
+  z-index: 10;
+
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  min-height: 31svh;
+
+  border-top: 1px solid var(--story-border);
+
+  background: linear-gradient(180deg, rgba(2, 10, 9, 0.96), #020807);
+
+  padding: 1.8rem clamp(1rem, 5vw, 5rem) 2rem;
+
+  box-sizing: border-box;
+}
+
+.story-stat {
+  position: relative;
+
+  padding: 0 clamp(1rem, 2.2vw, 2.5rem);
+}
+
+.story-stat + .story-stat {
+  border-left: 1px solid var(--story-border);
+}
+
+.story-stat-icon {
+  width: 35px;
+  height: 35px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 0.6rem;
+
+  border: 1px solid rgba(31, 234, 178, 0.65);
+
+  border-radius: 5px;
+
+  color: var(--story-green);
+
+  background: rgba(20, 84, 63, 0.12);
+}
+
+.story-stat-value {
+  color: #f2f6f4;
+
+  font-size: clamp(2rem, 3vw, 3.2rem);
+
+  line-height: 1;
+
+  font-weight: 650;
+
+  letter-spacing: -0.04em;
+}
+
+.story-stat-label {
+  margin-top: 0.4rem;
+
+  color: var(--story-green);
+
+  font-size: 0.58rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.15em;
+}
+
+.story-stat p {
+  margin: 0.42rem 0 0;
+
+  color: #7d8984;
+
+  font-size: 0.63rem;
+
+  line-height: 1.4;
+}
+
+/* ============================================================
+   TABLET
+   ============================================================ */
+
+@media (max-width: 900px) {
+  .story-content {
+    width: min(92%, 720px);
+
+    grid-template-columns:
+      minmax(0, 1fr)
+      220px;
+
+    column-gap: 2.5rem;
+  }
+
+  .story-title {
+    font-size: clamp(2.7rem, 6vw, 4.2rem);
+  }
+
+  .story-mountain-bg {
+    height: 72%;
+    min-height: 520px;
+  }
+}
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 680px) {
+  .our-story {
+    min-height: auto;
+  }
+
+  .story-mountain-bg {
+    inset: 0;
+
+    width: 100%;
+    height: 72%;
+
+    min-height: 620px;
+
+    object-position: 56% center;
+  }
+
+  .story-background-overlay {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(1, 9, 8, 0.25),
+        rgba(1, 9, 8, 0.62) 42%,
+        rgba(2, 9, 8, 0.98) 76%
+      ),
+      linear-gradient(90deg, rgba(1, 9, 8, 0.7), rgba(1, 9, 8, 0.12));
+  }
+
+  .story-content {
+    display: flex;
+
+    flex-direction: column;
+
+    width: 100%;
+
+    min-height: 720px;
+
+    padding: 5rem 1.25rem 3rem;
+
+    gap: 3rem;
+  }
+
+  .story-copy {
+    width: 100%;
+
+    max-width: 410px;
+
+    align-self: flex-start;
+  }
+
+  .story-title {
+    font-size: clamp(2.65rem, 11vw, 4rem);
+  }
+
+  .story-description {
+    max-width: 360px;
+  }
+
+  .story-description p {
+    font-size: 0.76rem;
+  }
+
+  .story-timeline {
+    width: min(100%, 330px);
+
+    min-height: auto;
+
+    align-self: flex-end;
+
+    gap: 1.2rem;
+  }
+
+  .story-stats {
+    grid-template-columns: repeat(2, 1fr);
+
+    min-height: auto;
+
+    padding: 1rem 0.8rem 1.4rem;
+  }
+
+  .story-stat {
+    min-height: 130px;
+
+    padding: 0.8rem 0.75rem;
+  }
+
+  .story-stat:nth-child(3),
+  .story-stat:nth-child(4) {
+    border-top: 1px solid var(--story-border);
+  }
+
+  .story-stat:nth-child(3) {
+    border-left: none;
+  }
+
+  .story-stat-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .story-stat-value {
+    font-size: 2rem;
+  }
+
+  .story-stat-label {
+    font-size: 0.5rem;
+
+    letter-spacing: 0.1em;
+  }
+
+  .story-stat p {
+    font-size: 0.56rem;
+  }
+}
+
+/* ============================================================
+   SMALL MOBILE
+   ============================================================ */
+
+@media (max-width: 420px) {
+  .story-content {
+    min-height: 680px;
+
+    padding: 4.5rem 1rem 2.5rem;
+  }
+
+  .story-title {
+    font-size: 2.35rem;
+  }
+
+  .story-description p {
+    font-size: 0.72rem;
+  }
+
+  .story-mountain-bg {
+    height: 70%;
+
+    min-height: 580px;
+
+    object-position: 58% center;
+  }
+
+  .story-stat {
+    min-height: 120px;
+
+    padding-inline: 0.6rem;
+  }
+
+  .story-stat-value {
+    font-size: 1.75rem;
+  }
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .story-mountain-bg {
+    will-change: auto;
   }
 }

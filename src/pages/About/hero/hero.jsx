@@ -3,7 +3,7 @@ import { Sparkles, Palette, Code2 } from "lucide-react";
 import { gsap } from "gsap";
 import "./hero.css";
 
-// Use your EXISTING house/building image here.
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import houseImage from "../../../assets/home.png";
 
 export default function Hero() {
@@ -13,98 +13,391 @@ export default function Hero() {
   useEffect(() => {
     const section = sectionRef.current;
 
-    if (!section) return;
+    if (!section) return undefined;
+
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
 
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
+      // ========================================================
+      // INITIAL STATES
+      // ========================================================
+
+      gsap.set(".about-eyebrow", {
+        opacity: 0,
+        x: -30,
+      });
+
+      gsap.set(".about-title span", {
+        opacity: 0,
+        y: 45,
+      });
+
+      gsap.set(".about-description", {
+        opacity: 0,
+        y: 25,
+      });
+
+      gsap.set(".about-meta span", {
+        opacity: 0,
+        y: 15,
+      });
+
+      gsap.set(".about-building", {
+        opacity: 0,
+        y: 45,
+        scale: 0.97,
+      });
+
+      gsap.set(".about-info-card", {
+        opacity: 0,
+        y: 25,
+      });
+
+      gsap.set(".network-node", {
+        opacity: 0,
+        scale: 0,
+      });
+
+      gsap.set(".about-network line", {
+        opacity: 0,
+      });
+
+      // ========================================================
+      // REDUCED MOTION
+      // ========================================================
+
+      if (reducedMotion) {
+        gsap.set(
+          [
+            ".about-eyebrow",
+            ".about-title span",
+            ".about-description",
+            ".about-meta span",
+            ".about-building",
+            ".about-info-card",
+            ".network-node",
+            ".about-network line",
+          ],
+          {
+            clearProps: "all",
+          },
+        );
+
+        return;
+      }
+
+      // ========================================================
+      // SCROLL-TRIGGERED ENTRANCE
+      // ========================================================
+
+      const entrance = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: "top 78%",
+          once: true,
+        },
+
         defaults: {
           ease: "power3.out",
         },
       });
 
-      tl.from(".about-eyebrow", {
-        x: -25,
-        opacity: 0,
-        duration: 0.6,
-      })
-        .from(
+      entrance
+        // ------------------------------------------------------
+        // Eyebrow
+        // ------------------------------------------------------
+
+        .to(".about-eyebrow", {
+          opacity: 1,
+          x: 0,
+          duration: 0.65,
+        })
+
+        // ------------------------------------------------------
+        // Heading
+        // ------------------------------------------------------
+
+        .to(
           ".about-title span",
           {
-            y: 35,
-            opacity: 0,
-            duration: 0.7,
+            opacity: 1,
+            y: 0,
+            duration: 0.75,
             stagger: 0.12,
           },
           "-=0.25",
         )
-        .from(
+
+        // ------------------------------------------------------
+        // Description
+        // ------------------------------------------------------
+
+        .to(
           ".about-description",
           {
-            y: 20,
-            opacity: 0,
-            duration: 0.55,
+            opacity: 1,
+            y: 0,
+            duration: 0.65,
+          },
+          "-=0.35",
+        )
+
+        // ------------------------------------------------------
+        // Metadata
+        // ------------------------------------------------------
+
+        .to(
+          ".about-meta span",
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.45,
+            stagger: 0.08,
           },
           "-=0.3",
         )
-        .from(
-          ".about-cta",
+
+        // ------------------------------------------------------
+        // HOUSE
+        //
+        // Entrance only.
+        // It does NOT continuously float.
+        // ------------------------------------------------------
+
+        .to(
+          ".about-building",
           {
-            y: 15,
-            opacity: 0,
-            duration: 0.5,
-          },
-          "-=0.25",
-        )
-        .from(
-          ".about-meta",
-          {
-            y: 15,
-            opacity: 0,
-            duration: 0.5,
-          },
-          "-=0.2",
-        )
-        .from(
-          buildingRef.current,
-          {
-            y: 55,
-            opacity: 0,
-            scale: 0.97,
-            duration: 1.2,
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 1.1,
             ease: "power4.out",
           },
-          "-=0.9",
+          "-=0.8",
         )
-        .from(
+
+        // ------------------------------------------------------
+        // INFO CARDS
+        // ------------------------------------------------------
+
+        .to(
           ".about-info-card",
           {
-            y: 20,
-            opacity: 0,
+            opacity: 1,
+            y: 0,
             duration: 0.55,
             stagger: 0.12,
           },
-          "-=0.7",
+          "-=0.65",
         )
-        .from(
+
+        // ------------------------------------------------------
+        // NETWORK LINES
+        // ------------------------------------------------------
+
+        .to(
+          ".about-network line",
+          {
+            opacity: 1,
+            duration: 0.7,
+            stagger: 0.05,
+          },
+          "-=0.65",
+        )
+
+        // ------------------------------------------------------
+        // NETWORK NODES
+        // ------------------------------------------------------
+
+        .to(
           ".network-node",
           {
-            scale: 0,
-            opacity: 0,
+            opacity: 1,
+            scale: 1,
             duration: 0.4,
-            stagger: 0.06,
+            stagger: 0.07,
+            ease: "back.out(2)",
           },
-          "-=0.7",
+          "-=0.55",
         );
+
+      // ========================================================
+      // NETWORK SCROLL PARALLAX
+      //
+      // Only the background network moves.
+      // The house remains anchored.
+      // ========================================================
+
+      gsap.to(".about-network", {
+        yPercent: 7,
+        xPercent: -2,
+
+        ease: "none",
+
+        scrollTrigger: {
+          trigger: section,
+          start: "top bottom",
+          end: "bottom top",
+
+          scrub: 1.3,
+
+          invalidateOnRefresh: true,
+        },
+      });
+
+      // ========================================================
+      // CARDS — TINY SCROLL PARALLAX
+      //
+      // Cards can have slight depth movement, but the house
+      // remains completely stationary.
+      // ========================================================
+
+      gsap.to(".strategy-card", {
+        y: -10,
+
+        ease: "none",
+
+        scrollTrigger: {
+          trigger: section,
+          start: "top bottom",
+          end: "bottom top",
+
+          scrub: 1.5,
+        },
+      });
+
+      gsap.to(".ux-card", {
+        y: 8,
+
+        ease: "none",
+
+        scrollTrigger: {
+          trigger: section,
+          start: "top bottom",
+          end: "bottom top",
+
+          scrub: 1.7,
+        },
+      });
+
+      gsap.to(".development-card", {
+        y: -7,
+
+        ease: "none",
+
+        scrollTrigger: {
+          trigger: section,
+          start: "top bottom",
+          end: "bottom top",
+
+          scrub: 1.6,
+        },
+      });
+
+      // ========================================================
+      // NETWORK NODE PULSE
+      //
+      // Idle animation after they appear.
+      // ========================================================
 
       gsap.to(".network-node", {
         scale: 1.35,
-        opacity: 0.45,
-        duration: 1.8,
-        ease: "sine.inOut",
+        opacity: 0.55,
+
+        duration: 1.7,
+
         repeat: -1,
         yoyo: true,
-        stagger: 0.18,
+
+        stagger: {
+          each: 0.18,
+          from: "random",
+        },
+
+        ease: "sine.inOut",
+
+        delay: entrance.duration(),
       });
+
+      // ========================================================
+      // SMALL MOUSE DEPTH EFFECT FOR CARDS ONLY
+      //
+      // No house movement.
+      // ========================================================
+
+      const handlePointerMove = (event) => {
+        if (window.innerWidth < 900) return;
+
+        const rect = section.getBoundingClientRect();
+
+        const x = (event.clientX - rect.left) / rect.width - 0.5;
+
+        const y = (event.clientY - rect.top) / rect.height - 0.5;
+
+        gsap.to(".strategy-card", {
+          x: x * 8,
+          duration: 1,
+          ease: "power3.out",
+        });
+
+        gsap.to(".ux-card", {
+          x: x * -6,
+          duration: 1,
+          ease: "power3.out",
+        });
+
+        gsap.to(".development-card", {
+          x: x * 7,
+          duration: 1,
+          ease: "power3.out",
+        });
+
+        gsap.to(".about-network", {
+          x: x * -10,
+          y: y * -6,
+          duration: 1.4,
+          ease: "power3.out",
+        });
+      };
+
+      const handlePointerLeave = () => {
+        gsap.to([".strategy-card", ".ux-card", ".development-card"], {
+          x: 0,
+          duration: 1,
+          ease: "power3.out",
+        });
+
+        gsap.to(".about-network", {
+          x: 0,
+          y: 0,
+          duration: 1.2,
+          ease: "power3.out",
+        });
+      };
+
+      section.addEventListener("pointermove", handlePointerMove);
+
+      section.addEventListener("pointerleave", handlePointerLeave);
+
+      // ========================================================
+      // REFRESH
+      // ========================================================
+
+      requestAnimationFrame(() => {
+        ScrollTrigger.refresh();
+      });
+
+      // ========================================================
+      // CLEANUP
+      // ========================================================
+
+      return () => {
+        section.removeEventListener("pointermove", handlePointerMove);
+
+        section.removeEventListener("pointerleave", handlePointerLeave);
+      };
     }, section);
 
     return () => ctx.revert();

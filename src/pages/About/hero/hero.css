@@ -64,7 +64,7 @@
 
   border-radius: 50%;
 
-  background: #63d63c;
+  background: #89c302;
 
   box-shadow:
     0 0 6px rgba(86, 217, 53, 0.75),
@@ -150,11 +150,11 @@
   width: 30px;
   height: 2px;
 
-  background: #53d46b;
+  background: #89c302;
 }
 
 .eyebrow-label {
-  color: #42ca70;
+  color: #89c302;
 }
 
 .about-eyebrow strong {
@@ -187,7 +187,7 @@
 }
 
 .about-title em {
-  color: #51bb32;
+  color: #89c302;
   font-style: normal;
 }
 
@@ -243,7 +243,7 @@
 }
 
 .about-cta svg {
-  color: #57dc45;
+  color: #89c302;
 
   transition: transform 0.3s ease;
 }
@@ -299,7 +299,7 @@
   width: 30px;
   height: 2px;
 
-  background: #59d76b;
+  background: #89c302;
 }
 
 .pagination-dash {
@@ -386,7 +386,7 @@
   align-items: center;
   justify-content: center;
 
-  color: #59ca3c;
+  color: #89c302;
 
   background: rgba(81, 202, 60, 0.07);
 

@@ -3,8 +3,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import "./HomeIntro.css";
-import ParticleBackground from "./ParticleBackground";
 import heroTechVisual from "../../assets/home-hero.png";
+import ParticleBackground from "../ParticleBackground/ParticleBackground";
 
 gsap.registerPlugin(ScrollTrigger);
 
