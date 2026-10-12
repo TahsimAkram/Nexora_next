@@ -404,7 +404,7 @@ export default function Services() {
     let rotate = 0;
     let zIndex = 100;
     let dim = 0;
-
+    const isSmallLaptop = window.innerWidth >= 950 && window.innerWidth <= 1366;
     if (offset === 0) {
       // ACTIVE
       x = 0;
@@ -414,28 +414,28 @@ export default function Services() {
       dim = 0;
     } else if (offset === -1) {
       // PREVIOUS
-      x = -350;
+      x = (isSmallLaptop ? -270 : -350)
       scale = 0.78;
       rotate = -1.5;
       zIndex = 80;
       dim = 0.12;
     } else if (offset === 1) {
       // NEXT
-      x = 350;
+      x = (isSmallLaptop ? 270 : 350)
       scale = 0.78;
       rotate = 1.5;
       zIndex = 80;
       dim = 0.12;
     } else if (offset === -2) {
       // FAR PREVIOUS
-      x = -505;
+      x = (isSmallLaptop ? -410 : -505);
       scale = 0.6;
       rotate = -2;
       zIndex = 50;
       dim = 0.28;
     } else if (offset === 2) {
       // FAR NEXT
-      x = 505;
+      x = (isSmallLaptop ? 410 : 505);
       scale = 0.6;
       rotate = 2;
       zIndex = 50;
@@ -449,6 +449,8 @@ export default function Services() {
       dim = 0.5;
     }
 
+    
+    
     gsap.set(card, {
       x,
       scale,
@@ -526,29 +528,29 @@ export default function Services() {
         let scale = 1;
         let rotate = 0;
         let zIndex = 100;
-
+        const isSmallLaptop = window.innerWidth >= 950 && window.innerWidth <= 1366;
         if (offset === 0) {
           x = 0;
           scale = 1;
           rotate = 0;
           zIndex = 100;
         } else if (offset === -1) {
-          x = -350;
+          x = (isSmallLaptop ? -270 : -350)
           scale = 0.78;
           rotate = -1.5;
           zIndex = 80;
         } else if (offset === 1) {
-          x = 350;
+          x = (isSmallLaptop ? 270 : 350);
           scale = 0.78;
           rotate = 1.5;
           zIndex = 80;
         } else if (offset === -2) {
-          x = -505;
+          x = (isSmallLaptop ? -410 : -505);
           scale = 0.6;
           rotate = -2;
           zIndex = 50;
         } else if (offset === 2) {
-          x = 505;
+          x = (isSmallLaptop ? 410 : 505);
           scale = 0.6;
           rotate = 2;
           zIndex = 50;

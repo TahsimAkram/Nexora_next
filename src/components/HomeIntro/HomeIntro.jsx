@@ -152,38 +152,34 @@ export default function HomeIntro() {
       // This affects the visual only by a few pixels.
       // ======================================================
 
-      gsap.to(visualWrap, {
-        y: -4,
-        rotationZ: 0.15,
 
-        duration: 4.8,
+      const compactScreen = window.matchMedia("(max-width: 1366px)").matches;
 
-        ease: "sine.inOut",
+// Subtle floating animation on larger screens only
+if (!compactScreen) {
+  gsap.to(visualWrap, {
+    y: -2,
+    rotationZ: 0.08,
+    duration: 6,
+    ease: "sine.inOut",
+    repeat: -1,
+    yoyo: true,
+  });
+}
 
-        repeat: -1,
-        yoyo: true,
-      });
+// Preserve downward movement when scrolling on ALL screens
+gsap.to(visualWrap, {
+  y: 45,
+  ease: "none",
+  scrollTrigger: {
+    trigger: section,
+    start: "top top",
+    end: "bottom top",
+    scrub: 1.4,
+    invalidateOnRefresh: true,
+  },
+});
 
-      // ======================================================
-      // SCROLL PARALLAX
-      //
-      // Tiny movement so it has depth without drifting.
-      // ======================================================
-
-      gsap.to(visualWrap, {
-        yPercent: 1.5,
-
-        ease: "none",
-
-        scrollTrigger: {
-          trigger: section,
-
-          start: "top top",
-          end: "bottom top",
-
-          scrub: 1.4,
-        },
-      });
 
       // ======================================================
       // CURSOR TILT
