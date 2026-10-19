@@ -1,0 +1,328 @@
+.our-values {
+  position: relative;
+
+  width: 100%;
+
+  background:
+    radial-gradient(
+      circle at 75% 45%,
+      rgba(123, 213, 68, 0.035),
+      transparent 32%
+    ),
+    #f7faf5;
+
+  color: #161a18;
+
+  overflow: hidden;
+}
+
+.our-values__inner {
+  display: grid;
+
+  grid-template-columns:
+    minmax(230px, 0.72fr)
+    minmax(0, 1.75fr);
+
+  align-items: center;
+
+  gap: clamp(2rem, 5vw, 5.5rem);
+
+  width: min(100%, 1420px);
+
+  margin: 0 auto;
+
+  padding: clamp(3rem, 5vw, 5rem) clamp(1.25rem, 4vw, 3.5rem);
+
+  box-sizing: border-box;
+}
+
+/* ============================================================
+   LEFT INTRO
+   ============================================================ */
+
+.values-intro {
+  min-width: 0;
+}
+
+.values-eyebrow {
+  display: flex;
+  align-items: center;
+
+  gap: 0.65rem;
+
+  margin-bottom: 1rem;
+
+  color: #83b900;
+
+  font-size: 0.58rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+}
+
+.values-eyebrow__line {
+  width: 1.8rem;
+  height: 2px;
+
+  flex: 0 0 auto;
+
+  background: #83b900;
+}
+
+.values-heading {
+  margin: 0;
+
+  font-family: var(--font-display, "Space Grotesk", sans-serif);
+
+  font-size: clamp(2rem, 3vw, 3.2rem);
+
+  line-height: 0.98;
+
+  font-weight: 620;
+
+  letter-spacing: -0.055em;
+}
+
+.values-heading-line {
+  display: block;
+}
+
+.values-heading-line--green {
+  color: #83b900;
+}
+
+.values-description {
+  max-width: 255px;
+
+  margin: 0.85rem 0 0;
+
+  color: #717871;
+
+  font-size: 0.67rem;
+
+  line-height: 1.55;
+}
+
+/* ============================================================
+   VALUE CARDS
+   ============================================================ */
+
+.values-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  min-width: 0;
+}
+
+.value-card {
+  position: relative;
+
+  min-height: 145px;
+
+  padding: 0.95rem 1rem;
+
+  border: 1px solid rgba(112, 135, 115, 0.13);
+
+  border-radius: 6px;
+
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.42),
+    rgba(247, 250, 245, 0.16)
+  );
+
+  box-sizing: border-box;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+.value-card + .value-card {
+  margin-left: 0.4rem;
+}
+
+.value-card:hover {
+  transform: translateY(-4px);
+
+  border-color: rgba(98, 190, 76, 0.3);
+
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.value-card__icon {
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 1rem;
+
+  color: #83b900;
+
+  background: rgba(102, 200, 47, 0.035);
+}
+
+.value-card h3 {
+  margin: 0;
+
+  color: #2a302c;
+
+  font-size: 0.68rem;
+
+  font-weight: 700;
+
+  line-height: 1.2;
+}
+
+.value-card p {
+  max-width: 145px;
+
+  margin: 0.4rem 0 0;
+
+  color: #7d847e;
+
+  font-size: 0.55rem;
+
+  line-height: 1.45;
+}
+
+/* ============================================================
+   LARGE TABLET
+   ============================================================ */
+
+@media (max-width: 1050px) {
+  .our-values__inner {
+    grid-template-columns:
+      minmax(190px, 0.65fr)
+      minmax(0, 1.8fr);
+
+    gap: 2rem;
+  }
+
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 0.5rem;
+  }
+
+  .value-card + .value-card {
+    margin-left: 0;
+  }
+
+  .value-card:nth-child(3) {
+    margin-top: 0;
+  }
+}
+
+/* ============================================================
+   TABLET
+   ============================================================ */
+
+@media (max-width: 760px) {
+  .our-values__inner {
+    grid-template-columns: 1fr;
+
+    gap: 2rem;
+
+    padding: 3.5rem 1.2rem;
+  }
+
+  .values-heading {
+    font-size: clamp(2.15rem, 8vw, 3rem);
+  }
+
+  .values-description {
+    max-width: 330px;
+
+    font-size: 0.7rem;
+  }
+
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 0.55rem;
+  }
+
+  .value-card {
+    min-height: 140px;
+
+    padding: 0.9rem;
+  }
+}
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 480px) {
+  .our-values__inner {
+    padding: 3rem 1rem;
+  }
+
+  .values-eyebrow {
+    font-size: 0.54rem;
+  }
+
+  .values-eyebrow__line {
+    width: 1.55rem;
+  }
+
+  .values-heading {
+    font-size: 2.15rem;
+  }
+
+  .values-description {
+    margin-top: 0.7rem;
+
+    font-size: 0.67rem;
+
+    line-height: 1.55;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+
+    gap: 0.5rem;
+  }
+
+  .value-card {
+    min-height: 120px;
+
+    padding: 0.9rem;
+  }
+
+  .value-card__icon {
+    margin-bottom: 0.7rem;
+
+    width: 28px;
+    height: 28px;
+  }
+
+  .value-card h3 {
+    font-size: 0.68rem;
+  }
+
+  .value-card p {
+    max-width: 100%;
+
+    font-size: 0.57rem;
+  }
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .value-card {
+    transition: none;
+  }
+}

@@ -18,7 +18,7 @@ const IMPACT_STATS = [
   },
 
   {
-    value: 150,
+    value: 50,
 
     suffix: "+",
 

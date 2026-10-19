@@ -1209,6 +1209,8 @@
     align-self: flex-end;
 
     gap: 1.2rem;
+    top: -5px;
+    right: 3em;
   }
 
   .story-stats {

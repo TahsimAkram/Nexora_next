@@ -8,7 +8,7 @@ import "./OurStory.css";
 import mountainImage from "../../../assets/mountains.png";
 
 import { Box, Users, Star, ChartNoAxesCombined } from "lucide-react";
-import ParticleBackground from "../../../components/ParticleBackground/ParticleBackground";
+import ParticleBackground from "../../ParticleBackground/ParticleBackground";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,6 +17,7 @@ const milestones = [
     year: "2020",
     title: "A Vision",
     text: "The beginning of a bigger possibility.",
+    active: true,
   },
   {
     year: "2022",
@@ -32,13 +33,12 @@ const milestones = [
     year: "Today",
     title: "A Digital Studio",
     text: "Continuing to innovate and create impact.",
-    active: true,
   },
 ];
 
 const stats = [
   {
-    value: "150+",
+    value: "50+",
     label: "PROJECTS DELIVERED",
     description: "Across industries and geographies.",
     icon: Box,

@@ -1,0 +1,810 @@
+.our-approach {
+  --approach-bg: #020908;
+  --approach-text: #f3f8f4;
+  --approach-muted: #7f9088;
+  --approach-green: #7fe12f;
+  --approach-border: rgba(123, 154, 143, 0.28);
+
+  position: relative;
+
+  width: 100%;
+  min-height: 360px;
+
+  overflow: hidden;
+  isolation: isolate;
+
+  background:
+    radial-gradient(
+      circle at 68% 52%,
+      rgba(36, 198, 141, 0.07),
+      transparent 30%
+    ),
+    #020908;
+
+  color: var(--approach-text);
+}
+
+.our-approach {
+  background-size: 100% 80% !important;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+}
+
+/* ============================================================
+   PARTICLES
+   ============================================================ */
+
+.our-approach-particles {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 1;
+
+  opacity: 0.28;
+
+  pointer-events: none;
+}
+
+/* ============================================================
+   AMBIENT LIGHT
+   ============================================================ */
+
+.approach-glow {
+  position: absolute;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  z-index: 0;
+}
+
+.approach-glow--left {
+  width: 320px;
+  height: 220px;
+
+  left: -100px;
+  top: 25%;
+
+  background: radial-gradient(
+    ellipse,
+    rgba(45, 210, 143, 0.045),
+    transparent 72%
+  );
+
+  filter: blur(40px);
+}
+
+.approach-glow--center {
+  width: 600px;
+  height: 180px;
+
+  left: 50%;
+  bottom: 0;
+
+  transform: translateX(-50%);
+
+  background: radial-gradient(
+    ellipse,
+    rgba(65, 235, 154, 0.07),
+    transparent 72%
+  );
+
+  filter: blur(38px);
+}
+
+.approach-glow--bottom {
+  width: 500px;
+  height: 160px;
+
+  right: -80px;
+  bottom: -20px;
+
+  background: radial-gradient(
+    ellipse,
+    rgba(55, 220, 149, 0.045),
+    transparent 70%
+  );
+
+  filter: blur(40px);
+}
+
+/* ============================================================
+   MAIN CONTENT
+   ============================================================ */
+
+.approach-content {
+  position: relative;
+  z-index: 5;
+
+  display: grid;
+
+  grid-template-columns:
+    280px
+    minmax(0, 1fr);
+
+  align-items: start;
+
+  width: min(1360px, calc(100% - 8vw));
+
+  min-height: 275px;
+
+  margin: 0 auto;
+
+  padding: 2.8rem 0 6rem;
+
+  column-gap: clamp(3.5rem, 6vw, 6rem);
+
+  box-sizing: border-box;
+}
+
+/* ============================================================
+   LEFT INTRO
+   ============================================================ */
+
+.approach-intro {
+  position: relative;
+  z-index: 6;
+
+  width: 100%;
+  max-width: 280px;
+}
+
+.approach-eyebrow {
+  display: flex;
+  align-items: center;
+
+  gap: 0.65rem;
+
+  margin-bottom: 0.85rem;
+
+  color: var(--approach-green);
+
+  font-size: 0.55rem;
+  font-weight: 800;
+
+  letter-spacing: 0.16em;
+
+  text-transform: uppercase;
+}
+
+.approach-eyebrow-line {
+  width: 1.8rem;
+  height: 2px;
+
+  flex: 0 0 auto;
+
+  background: var(--approach-green);
+}
+
+.approach-title {
+  width: 100%;
+
+  margin: 0;
+
+  font-family: var(--font-display, "Space Grotesk", sans-serif);
+
+  font-size: clamp(2.15rem, 3vw, 3.05rem);
+
+  font-weight: 620;
+
+  line-height: 0.94;
+
+  letter-spacing: -0.06em;
+}
+
+.approach-title-line {
+  display: block;
+
+  white-space: nowrap;
+}
+
+.approach-title em {
+  color: var(--approach-green);
+
+  font-style: normal;
+}
+
+.approach-description {
+  width: 250px;
+
+  margin: 1rem 0 1rem;
+
+  color: #d6d6d6;
+
+  font-size: 0.63rem;
+
+  line-height: 1.52;
+}
+
+.approach-button {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.9rem;
+
+  height: 34px;
+
+  padding: 0 0.8rem;
+
+  border: 1px solid var(--approach-green);
+
+  border-radius: 3px;
+
+  color: #f0f8f3;
+
+  background: transparent;
+
+  font-size: 0.5rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.11em;
+
+  text-decoration: none;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.approach-button-arrow {
+  color: var(--approach-green);
+
+  font-size: 0.9rem;
+
+  line-height: 1;
+
+  transition: transform 0.25s ease;
+}
+
+.approach-button:hover {
+  transform: translateY(-2px);
+
+  background: rgba(127, 225, 47, 0.06);
+}
+
+.approach-button:hover .approach-button-arrow {
+  transform: translateX(3px);
+}
+
+/* ============================================================
+   PROCESS STEPS
+   ============================================================ */
+
+.approach-steps {
+  display: grid;
+
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+
+  width: 100%;
+
+  padding-top: 4.15rem;
+  min-width: 0;
+
+  padding-left: 3em;
+}
+
+.approach-step {
+  position: relative;
+
+  min-width: 0;
+}
+
+.approach-step-top {
+  display: flex;
+
+  align-items: center;
+
+  width: 100%;
+
+  margin-bottom: 0.7rem;
+}
+
+.approach-step-number {
+  position: relative;
+  z-index: 2;
+
+  width: 30px;
+  height: 30px;
+
+  flex: 0 0 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--approach-green);
+
+  border-radius: 50%;
+
+  background: #020908;
+
+  color: var(--approach-green);
+
+  font-size: 0.55rem;
+
+  font-weight: 700;
+
+  transition:
+    border-color 0.25s ease,
+    color 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+.approach-steps {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  column-gap: 0;
+}
+
+.approach-progress-track {
+  position: absolute;
+  top: 5em;
+  left: 19px;
+  right: calc(10% - 19px);
+  height: 2px;
+  overflow: hidden;
+  background: rgba(57, 230, 165, 0.18);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.approach-progress-pulse {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 12%;
+  height: 100%;
+  opacity: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #39e6a5 35%,
+    #c0ffe6 50%,
+    #39e6a5 65%,
+    transparent
+  );
+  box-shadow: 0 0 10px rgba(57, 230, 165, 0.8);
+}
+
+.approach-progress-pulse.is-animating {
+  animation: approach-single-pulse 8s linear infinite;
+}
+
+@keyframes approach-single-pulse {
+  0% {
+    left: 0;
+    opacity: 0;
+  }
+
+  5% {
+    opacity: 1;
+  }
+
+  95% {
+    opacity: 1;
+  }
+
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+.approach-step {
+  position: relative;
+  z-index: 1;
+}
+
+.approach-step-top {
+  display: flex;
+  align-items: center;
+}
+
+.approach-step-number {
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+  background: #020b09;
+}
+
+.approach-step h3 {
+  margin: 0 0 0.35rem;
+
+  color: #edf4f0;
+
+  font-size: 0.68rem;
+
+  line-height: 1.2;
+
+  font-weight: 700;
+}
+
+.approach-step p {
+  width: min(115px, 100%);
+
+  margin: 0;
+
+  color: #adadad;
+
+  font-size: 0.6rem;
+
+  line-height: 1.45;
+}
+
+/* ============================================================
+   WAVE
+   ============================================================ */
+/* ============================================================
+   WAVE BACKGROUND
+   ============================================================ */
+
+.our-approach {
+  --approach-bg: #020908;
+  --approach-text: #f3f8f4;
+  --approach-muted: #71827a;
+  --approach-green: #83b900;
+  --approach-border: rgba(115, 152, 138, 0.3);
+
+  position: relative;
+
+  width: 100%;
+  min-height: 525px;
+
+  overflow: hidden;
+  isolation: isolate;
+
+  background-color: var(--approach-bg);
+
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: 100% auto;
+
+  color: var(--approach-text);
+}
+/* ============================================================
+   BOTTOM FADE
+   ============================================================ */
+
+.approach-bottom-fade {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 15%;
+
+  z-index: 4;
+
+  background: linear-gradient(to bottom, transparent, rgba(2, 8, 7, 0.28));
+
+  pointer-events: none;
+}
+
+/* ============================================================
+   TABLET
+   ============================================================ */
+
+@media (max-width: 1050px) {
+  .approach-content {
+    grid-template-columns:
+      250px
+      minmax(0, 1fr);
+
+    column-gap: 3rem;
+
+    width: min(94%, 1100px);
+  }
+
+  .approach-title {
+    font-size: clamp(2rem, 3.4vw, 2.7rem);
+  }
+
+  .approach-description {
+    width: 230px;
+  }
+
+  .approach-step p {
+    width: 100px;
+  }
+}
+
+/* ============================================================
+   TABLET / PORTRAIT
+   ============================================================ */
+
+@media (max-width: 850px) {
+  .our-approach {
+    min-height: 620px;
+  }
+
+  .approach-content {
+    grid-template-columns: 1fr;
+
+    min-height: auto;
+
+    padding: 3.5rem 0 10rem;
+
+    row-gap: 2.5rem;
+  }
+
+  .approach-intro {
+    max-width: 360px;
+  }
+
+  .approach-title {
+    font-size: clamp(2.4rem, 6vw, 3.5rem);
+  }
+
+  .approach-description {
+    width: 300px;
+  }
+
+  .approach-steps {
+    width: 100%;
+  }
+}
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 640px) {
+  .our-approach {
+    min-height: 760px;
+  }
+
+  .approach-content {
+    width: calc(100% - 2rem);
+
+    padding: 3.5rem 0 10rem;
+
+    row-gap: 2.5rem;
+  }
+
+  .approach-title {
+    font-size: clamp(2.35rem, 11vw, 3.4rem);
+  }
+
+  .approach-description {
+    width: min(100%, 320px);
+
+    font-size: 0.64rem;
+  }
+
+  .approach-steps {
+    grid-template-columns: repeat(5, minmax(118px, 1fr));
+
+    width: max-content;
+  }
+
+  .approach-step {
+    width: 118px;
+
+    padding-right: 0.7rem;
+  }
+
+  .approach-step-number {
+    width: 28px;
+    height: 28px;
+
+    flex-basis: 28px;
+  }
+
+  .approach-step h3 {
+    font-size: 0.63rem;
+  }
+
+  .approach-step p {
+    width: 105px;
+
+    font-size: 0.48rem;
+  }
+}
+
+/* ============================================================
+   SMALL MOBILE
+   ============================================================ */
+
+@media (max-width: 420px) {
+  .our-approach {
+    min-height: 730px;
+  }
+
+  .approach-content {
+    width: calc(100% - 1.5rem);
+
+    padding-top: 3rem;
+  }
+
+  .approach-title {
+    font-size: 2.25rem;
+  }
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .approach-button,
+  .approach-button-arrow {
+    transition: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .our-approach {
+    min-height: auto;
+    background-image: none !important;
+    background-size: auto;
+    overflow: hidden;
+  }
+
+  .approach-content {
+    width: calc(100% - 36px);
+    min-height: auto;
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 26px;
+    padding: 42px 0 48px;
+  }
+
+  .approach-intro {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .approach-eyebrow {
+    margin-bottom: 14px;
+    font-size: 9px;
+  }
+
+  .approach-title {
+    font-size: clamp(32px, 8vw, 40px);
+    line-height: 1.06;
+    letter-spacing: -0.045em;
+  }
+
+  .approach-title-line {
+    white-space: normal;
+  }
+
+  .approach-description {
+    width: 100%;
+    max-width: 100%;
+    margin: 14px 0 0;
+    font-size: 12px;
+    line-height: 1.65;
+  }
+
+  .approach-button {
+    margin-top: 16px;
+  }
+
+  .approach-steps {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 10px 0 0;
+    margin: 0;
+    overflow: visible;
+    column-gap: 0;
+    box-sizing: border-box;
+  }
+
+  .approach-step {
+    width: auto;
+    min-width: 0;
+    padding: 0 4px 0 0;
+  }
+
+  .approach-step-top {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .approach-step-number {
+    width: 26px;
+    height: 26px;
+    flex: 0 0 26px;
+    font-size: 9px;
+  }
+
+  .approach-step h3 {
+    margin: 0 0 5px;
+    font-size: 10px;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+  }
+
+  .approach-step p {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    font-size: 9px;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+  }
+
+  .approach-progress-track {
+    top: 23px;
+    left: 13px;
+    right: 13px;
+    width: auto;
+  }
+
+  .approach-progress-pulse {
+    width: 12%;
+  }
+
+  .approach-bottom-fade {
+    height: 8%;
+  }
+}
+
+@media (max-width: 380px) {
+  .approach-content {
+    width: calc(100% - 28px);
+    padding-top: 34px;
+    padding-bottom: 38px;
+    row-gap: 22px;
+  }
+
+  .approach-title {
+    font-size: 31px;
+  }
+
+  .approach-step {
+    padding-right: 3px;
+  }
+
+  .approach-step-number {
+    width: 23px;
+    height: 23px;
+    flex-basis: 23px;
+    font-size: 8px;
+  }
+
+  .approach-progress-track {
+    top: 21px;
+    left: 11.5px;
+    right: 11.5px;
+  }
+
+  .approach-step h3 {
+    font-size: 9px;
+  }
+
+  .approach-step p {
+    font-size: 8px;
+  }
+}
+
+.approach-progress-track {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.approach-progress-track.is-visible {
+  opacity: 1;
+}
+
+.approach-progress-pulse {
+  left: 0;
+  opacity: 0;
+}
+
+.approach-progress-pulse.is-animating {
+  animation: approach-single-pulse 8s linear forwards;
+}
