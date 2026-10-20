@@ -2,15 +2,13 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import HomeIntro from "../../components/HomeIntro/HomeIntro";
-
 import "./Home.css";
-import Services from "../../components/Capabilities/Services";
-import Impact from "../../components/Impact/Impact";
-import Work from "../../components/Work/Work";
-import Testimonials from "../../components/Testimonials/Testimonials";
-import ContactCTA from "../../components/ContactCTA/ContactCTA";
-import Footer from "../../components/Footer/Footer";
+import HomeIntro from "../../components/Home/HomeIntro/HomeIntro";
+import Services from "../../components/Home/Capabilities/Services";
+import Impact from "../../components/Home/Impact/Impact";
+import Work from "../../components/Home/Work/Work";
+import Testimonials from "../../components/Home/Testimonials/Testimonials";
+import ContactCTA from "../../components/Home/ContactCTA/ContactCTA";
 
 gsap.registerPlugin(ScrollTrigger);
 

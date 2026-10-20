@@ -3,8 +3,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import "./HomeIntro.css";
-import heroTechVisual from "../../assets/home-hero.png";
-import ParticleBackground from "../ParticleBackground/ParticleBackground";
+import heroTechVisual from "../../../assets/home-hero.png";
+import ParticleBackground from "../../ParticleBackground/ParticleBackground";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -152,34 +152,32 @@ export default function HomeIntro() {
       // This affects the visual only by a few pixels.
       // ======================================================
 
-
       const compactScreen = window.matchMedia("(max-width: 1366px)").matches;
 
-// Subtle floating animation on larger screens only
-if (!compactScreen) {
-  gsap.to(visualWrap, {
-    y: -2,
-    rotationZ: 0.08,
-    duration: 6,
-    ease: "sine.inOut",
-    repeat: -1,
-    yoyo: true,
-  });
-}
+      // Subtle floating animation on larger screens only
+      if (!compactScreen) {
+        gsap.to(visualWrap, {
+          y: -2,
+          rotationZ: 0.08,
+          duration: 6,
+          ease: "sine.inOut",
+          repeat: -1,
+          yoyo: true,
+        });
+      }
 
-// Preserve downward movement when scrolling on ALL screens
-gsap.to(visualWrap, {
-  y: 45,
-  ease: "none",
-  scrollTrigger: {
-    trigger: section,
-    start: "top top",
-    end: "bottom top",
-    scrub: 1.4,
-    invalidateOnRefresh: true,
-  },
-});
-
+      // Preserve downward movement when scrolling on ALL screens
+      gsap.to(visualWrap, {
+        y: 45,
+        ease: "none",
+        scrollTrigger: {
+          trigger: section,
+          start: "top top",
+          end: "bottom top",
+          scrub: 1.4,
+          invalidateOnRefresh: true,
+        },
+      });
 
       // ======================================================
       // CURSOR TILT

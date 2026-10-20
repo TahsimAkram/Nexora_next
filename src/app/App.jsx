@@ -4,8 +4,10 @@ import AppLayout from "../components/layouts/AppLayout";
 import SmoothScrollProvider from "../components/motion/SmoothScrollProvider";
 import AppRoutes from "./routes";
 import ContactModal from "../components/Modal/ContactModal";
+import useScrollToTop from "../hooks/useScrollToTop";
 
 export default function App() {
+  useScrollToTop();
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [contactResponse, setContactResponse] = useState(null);
 

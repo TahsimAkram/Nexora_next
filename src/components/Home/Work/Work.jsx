@@ -1,9 +1,9 @@
 import "./Work.css";
 import { useEffect, useRef } from "react";
 
-import traftVisual from "../../assets/Traft.png";
-import smileBeautyVisual from "../../assets/smile.png";
-import hydroponicVisual from "../../assets/hydroponic.png";
+import traftVisual from "../../../assets/Traft.png";
+import smileBeautyVisual from "../../../assets/smile.png";
+import hydroponicVisual from "../../../assets/hydroponic.png";
 
 import gsap from "gsap";
 

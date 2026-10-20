@@ -163,6 +163,79 @@
 }
 
 /* =========================================
+   WORK PAGE — DARK HERO NAVBAR
+========================================= */
+
+.navbar.navbar--work:not(.navbar--scrolled) {
+  background: linear-gradient(
+    180deg,
+    rgba(3, 5, 4, 0.72) 0%,
+    rgba(3, 5, 4, 0.25) 75%,
+    transparent 100%
+  ) !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.navbar.navbar--work:not(.navbar--scrolled) .navbar__brand,
+.navbar.navbar--work:not(.navbar--scrolled) .navbar__link,
+.navbar.navbar--work:not(.navbar--scrolled) .navbar__contact,
+.navbar.navbar--work:not(.navbar--scrolled) .navbar__menu-button {
+  color: #f7f8f2 !important;
+}
+
+.navbar.navbar--work:not(.navbar--scrolled) .navbar__link {
+  opacity: 0.82;
+}
+
+.navbar.navbar--work:not(.navbar--scrolled) .navbar__link:hover,
+.navbar.navbar--work:not(.navbar--scrolled) .navbar__link--active {
+  opacity: 1;
+}
+
+.navbar.navbar--work:not(.navbar--scrolled) .navbar__brand span,
+.navbar.navbar--work:not(.navbar--scrolled) .navbar__contact svg {
+  color: #b6e51b !important;
+}
+
+.navbar.navbar--work:not(.navbar--scrolled) .navbar__mobile {
+  background: #080b07;
+}
+
+.navbar.navbar--work:not(.navbar--scrolled) .navbar__mobile-link,
+.navbar.navbar--work:not(.navbar--scrolled) .navbar__mobile-contact {
+  color: #f7f8f2;
+}
+
+.navbar.navbar--work:not(.navbar--scrolled) .navbar__mobile-number,
+.navbar.navbar--work:not(.navbar--scrolled) .navbar__mobile-contact svg {
+  color: #b6e51b;
+}
+
+/* After scrolling, use the existing light navbar theme */
+.navbar.navbar--work.navbar--scrolled {
+  background: rgba(246, 246, 241, 0.94) !important;
+  border-bottom: 1px solid rgba(20, 20, 20, 0.06) !important;
+  box-shadow: 0 1px 0 rgba(20, 20, 20, 0.04) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+}
+
+.navbar.navbar--work.navbar--scrolled .navbar__brand,
+.navbar.navbar--work.navbar--scrolled .navbar__link,
+.navbar.navbar--work.navbar--scrolled .navbar__contact,
+.navbar.navbar--work.navbar--scrolled .navbar__menu-button {
+  color: var(--color-foreground) !important;
+}
+
+.navbar.navbar--work.navbar--scrolled .navbar__brand span,
+.navbar.navbar--work.navbar--scrolled .navbar__contact svg {
+  color: #8da92c !important;
+}
+
+/* =========================================
    MOBILE MENU BUTTON
 ========================================= */
 

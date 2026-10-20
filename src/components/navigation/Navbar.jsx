@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { IconButton } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
@@ -16,11 +16,12 @@ const navigationItems = [
 
 export default function Navbar({ onOpenContact }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
+
+  const isWorkPage = location.pathname === "/work";
 
   const closeMenu = () => setMenuOpen(false);
-
-  // inside Navbar()
-  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 30);
@@ -30,8 +31,21 @@ export default function Navbar({ onOpenContact }) {
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    closeMenu();
+  }, [location.pathname]);
+
   return (
-    <header className={`navbar ${isScrolled ? "navbar--scrolled" : ""}`}>
+    <header
+      className={[
+        "navbar",
+        isScrolled ? "navbar--scrolled" : "",
+        isWorkPage ? "navbar--work" : "",
+      ]
+        .filter(Boolean)
+        .join(" ")}
+    >
       <div className="navbar__shell">
         <div className="navbar__inner">
           <Link
@@ -88,7 +102,7 @@ export default function Navbar({ onOpenContact }) {
           aria-label="Mobile navigation"
           aria-hidden={!menuOpen}
         >
-          {navigationItems.map((item, index) => (
+          {navigationItems.map((item) => (
             <NavLink
               key={item.path}
               to={item.path}
