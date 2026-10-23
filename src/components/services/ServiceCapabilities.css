@@ -1,0 +1,125 @@
+.service-detail__capabilities-heading {
+font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.19em;
+}
+
+.service-detail__capabilities-heading {
+display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 36px 0 21px;
+  color: #dce3e9;
+  font-size: 9px;
+}
+
+.service-detail__capabilities-line {
+flex: 1;
+  height: 1px;
+  background: var(--services-line);
+}
+
+.service-detail__capabilities {
+display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px 24px;
+}
+
+.service-capability {
+display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  align-items: start;
+  gap: 11px;
+}
+
+.service-capability__icon {
+display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--service-accent) 42%, transparent);
+  border-radius: 9px;
+  color: var(--service-accent);
+  background: color-mix(in srgb, var(--service-accent) 7%, transparent);
+}
+
+.service-capability h3 {
+margin: 1px 0 5px !important;
+  color: #e9eef2;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.service-capability p {
+color: #8f9ca9;
+  font-size: 11px;
+  line-height: 1.65;
+}
+
+@media (max-width: 980px) {
+.service-detail__capabilities {
+gap: 18px 15px;
+}
+
+}
+
+@media (max-width: 700px) {
+.service-detail__capabilities-heading {
+margin-top: 29px;
+}
+
+}
+
+@media (max-width: 700px) {
+.service-detail__capabilities {
+gap: 19px 12px;
+}
+
+}
+
+@media (max-width: 700px) {
+.service-capability {
+grid-template-columns: 29px minmax(0, 1fr);
+    gap: 8px;
+}
+
+}
+
+@media (max-width: 700px) {
+.service-capability__icon {
+width: 28px;
+    height: 28px;
+    border-radius: 7px;
+}
+
+}
+
+@media (max-width: 700px) {
+.service-capability__icon svg {
+width: 15px;
+    height: 15px;
+}
+
+}
+
+@media (max-width: 700px) {
+.service-capability h3 {
+font-size: 11px;
+}
+
+}
+
+@media (max-width: 700px) {
+.service-capability p {
+font-size: 10px;
+}
+
+}
+
+@media (max-width: 390px) {
+.service-detail__capabilities {
+grid-template-columns: 1fr;
+}
+
+}

@@ -105,11 +105,6 @@ export default function MoreProjects() {
             ))}
           </div>
         </div>
-
-        <p className="more-projects__note">
-          Selected concept designs · Explore what we could build for your
-          business.
-        </p>
       </div>
     </section>
   );

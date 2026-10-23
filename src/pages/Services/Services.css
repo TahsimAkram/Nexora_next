@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+:root {
+--services-bg: #06090d;
+  --services-panel: #0a1016;
+  --services-panel-soft: #0d141c;
+  --services-text: #f3f6f8;
+  --services-muted: #a1adba;
+  --services-faint: #6f7c89;
+  --services-line: rgba(179, 194, 208, 0.16);
+  --services-lime: #b6ff00;
+  --services-blue: #28a5ff;
+  --services-orange: #ff8a32;
+  --services-purple: #9b70ff;
+  --services-pink: #ff4da6;
+  --services-teal: #13d8d1;
+}
+
+.services-page {
+min-height: 100vh;
+  overflow: clip;
+  background:
+    radial-gradient(ellipse at 50% 7%, rgba(14, 38, 47, 0.18), transparent 44%),
+    var(--services-bg);
+  color: var(--services-text);
+  font-family: "DM Sans", sans-serif;
+}
+
+.services-page *,
+.services-page *::before,
+.services-page *::after {
+box-sizing: border-box;
+}
+
+.services-page h1,
+.services-page h2,
+.services-page h3,
+.services-page p,
+.services-page figure {
+margin: 0;
+}
+
+.services-page a {
+color: inherit;
+}
+
+.services-list {
+width: min(1320px, 100%);
+  margin: 0 auto;
+  padding: 0 max(4vw, 22px);
+}
+
+@media (max-width: 700px) {
+.services-list {
+padding: 0 20px;
+}
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+.services-page *,
+.services-page *::before,
+.services-page *::after {
+scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+}
+
+}

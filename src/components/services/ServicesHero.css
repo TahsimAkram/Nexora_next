@@ -1,0 +1,331 @@
+.services-hero {
+  --hero-lime: var(--services-lime, #b6ff00);
+
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  min-height: 500px;
+  padding-top: 120px;
+  padding-bottom: 70px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--services-line, #1c2b30);
+  background-color: #02080b;
+}
+
+.services-hero__background {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background-repeat: no-repeat;
+  background-position: center, center;
+  background-size: cover, cover;
+  will-change: transform;
+}
+
+/* Preserve the existing desktop gradient over the image. */
+.services-hero__background {
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(2, 8, 11, 0.12) 0%,
+      rgba(2, 8, 11, 0.05) 48%,
+      rgba(2, 8, 11, 0.04) 100%
+    ),
+    var(--services-hero-image);
+}
+
+.services-hero__content {
+  position: relative;
+  z-index: 1;
+  width: min(560px, 66%);
+}
+
+.services-hero__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 10px !important;
+  color: var(--hero-lime);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  line-height: 1.4;
+}
+
+.services-hero__eyebrow span {
+  width: 7px;
+  height: 7px;
+  flex: 0 0 7px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 8px rgba(182, 255, 0, 0.3);
+}
+
+.services-hero h1 {
+  max-width: 580px;
+  margin: 0 !important;
+  color: #f5f7f8;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(27px, 3vw, 38px);
+  font-weight: 500;
+  line-height: 1.04;
+  letter-spacing: -0.045em;
+}
+
+.services-hero h1 span {
+  color: var(--hero-lime);
+}
+
+.services-hero__description {
+  max-width: 520px;
+  margin: 12px 0 0 !important;
+  color: #b8c5cd;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.55;
+}
+
+.services-hero__scroll {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(182, 255, 0, 0.55);
+  color: var(--hero-lime) !important;
+  text-decoration: none;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  transition: gap 180ms ease;
+}
+
+.services-hero__scroll:hover {
+  gap: 15px;
+}
+
+.services-hero__side-note {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  right: max(6vw, calc((100vw - 1320px) / 2));
+  display: grid;
+  gap: 6px;
+  padding-left: 15px;
+  border-left: 1px solid rgba(0, 220, 240, 0.7);
+  color: #b7c8d2;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  line-height: 1.4;
+  transform: translateY(-50%);
+}
+
+/* Large desktop */
+@media (min-width: 1500px) {
+  .services-hero {
+    min-height: 500px;
+    padding-right: max(7vw, calc((100vw - 1320px) / 2));
+    padding-left: max(7vw, calc((100vw - 1320px) / 2));
+  }
+
+  .services-hero__content {
+    width: min(600px, 58%);
+  }
+}
+
+/* Small laptops and compact desktop screens */
+@media (min-width: 901px) and (max-width: 1280px) {
+  .services-hero {
+    min-height: 440px;
+    padding: 110px 5% 60px;
+  }
+
+  .services-hero__background {
+    background-position:
+      center,
+      58% center;
+  }
+
+  .services-hero__content {
+    width: min(520px, 62%);
+  }
+
+  .services-hero h1 {
+    font-size: clamp(30px, 3.2vw, 38px);
+  }
+
+  .services-hero__description {
+    max-width: 450px;
+    font-size: 12px;
+  }
+
+  .services-hero__side-note {
+    right: 4%;
+    font-size: 8px;
+  }
+}
+
+/* Tablets and smaller laptops */
+@media (min-width: 601px) and (max-width: 900px) {
+  .services-hero {
+    min-height: 380px;
+    padding: 100px 5% 50px;
+  }
+
+  .services-hero__background {
+    background-position:
+      center,
+      62% center;
+  }
+
+  .services-hero__content {
+    width: min(480px, 72%);
+  }
+
+  .services-hero h1 {
+    max-width: 440px;
+    font-size: clamp(28px, 4.2vw, 36px);
+    line-height: 1.08;
+  }
+
+  .services-hero__description {
+    max-width: 420px;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  .services-hero__side-note {
+    right: 3%;
+    gap: 5px;
+    padding-left: 8px;
+    font-size: 7px;
+    letter-spacing: 0.08em;
+  }
+}
+
+/* Large phones and portrait tablets */
+@media (min-width: 401px) and (max-width: 600px) {
+  .services-hero {
+    min-height: 360px;
+    padding: 100px 24px 38px;
+    align-items: center;
+  }
+
+  .services-hero__background {
+    background-position:
+      center,
+      66% center;
+  }
+
+  .services-hero::before {
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      rgba(2, 8, 11, 0.96) 0%,
+      rgba(2, 8, 11, 0.84) 58%,
+      rgba(2, 8, 11, 0.4) 100%
+    );
+    content: "";
+  }
+
+  .services-hero__content {
+    width: 100%;
+  }
+
+  .services-hero__eyebrow {
+    margin-bottom: 12px !important;
+    font-size: 9px;
+  }
+
+  .services-hero h1 {
+    max-width: 420px;
+    font-size: clamp(27px, 6.5vw, 34px);
+    line-height: 1.1;
+  }
+
+  .services-hero h1 br {
+    display: none;
+  }
+
+  .services-hero__description {
+    max-width: 400px;
+    margin-top: 14px !important;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  .services-hero__side-note {
+    display: none;
+  }
+}
+
+/* Small phones */
+@media (max-width: 400px) {
+  .services-hero {
+    min-height: 340px;
+    padding: 90px 20px 32px;
+    align-items: center;
+  }
+
+  .services-hero__background {
+    background-position:
+      center,
+      69% center;
+  }
+
+  .services-hero::before {
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      rgba(2, 8, 11, 0.97) 0%,
+      rgba(2, 8, 11, 0.88) 62%,
+      rgba(2, 8, 11, 0.5) 100%
+    );
+    content: "";
+  }
+
+  .services-hero__content {
+    width: 100%;
+  }
+
+  .services-hero__eyebrow {
+    gap: 7px;
+    margin-bottom: 12px !important;
+    font-size: 8px;
+  }
+
+  .services-hero h1 {
+    max-width: 350px;
+    font-size: clamp(25px, 7.4vw, 29px);
+    line-height: 1.12;
+    letter-spacing: -0.04em;
+  }
+
+  .services-hero h1 br {
+    display: none;
+  }
+
+  .services-hero__description {
+    max-width: 340px;
+    margin-top: 13px !important;
+    font-size: 11px;
+    line-height: 1.65;
+  }
+
+  .services-hero__side-note {
+    display: none;
+  }
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .services-hero__scroll {
+    transition: none;
+  }
+}

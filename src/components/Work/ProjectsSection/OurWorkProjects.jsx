@@ -144,7 +144,6 @@ const projects = [
       "Farm overview and monitoring",
       "Growing-condition summaries",
       "Organized crop information",
-      "Responsive interface",
       "Operational data presentation",
     ],
     impact: [

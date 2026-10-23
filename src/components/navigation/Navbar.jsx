@@ -7,10 +7,9 @@ import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import "./Navbar.css";
 
 const navigationItems = [
-  { label: "About", path: "/about" },
   { label: "Services", path: "/services" },
-  { label: "Work", path: "/work" },
-  { label: "Process", path: "/process" },
+  { label: "Our Work", path: "/work" },
+  { label: "About Us", path: "/about" },
   { label: "Careers", path: "/careers" },
 ];
 
@@ -20,6 +19,7 @@ export default function Navbar({ onOpenContact }) {
   const location = useLocation();
 
   const isWorkPage = location.pathname === "/work";
+  const isServicesPage = location.pathname === "/services";
 
   const closeMenu = () => setMenuOpen(false);
 
@@ -41,7 +41,7 @@ export default function Navbar({ onOpenContact }) {
       className={[
         "navbar",
         isScrolled ? "navbar--scrolled" : "",
-        isWorkPage ? "navbar--work" : "",
+        isWorkPage || isServicesPage ? "navbar--work" : "",
       ]
         .filter(Boolean)
         .join(" ")}

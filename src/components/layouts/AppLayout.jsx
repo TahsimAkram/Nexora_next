@@ -6,7 +6,6 @@ export default function AppLayout({ children, onOpenContact }) {
   return (
     <div className="app-shell">
       <Navbar onOpenContact={onOpenContact} />
-
       <main className="app-main">{children}</main>
       <Footer />
     </div>

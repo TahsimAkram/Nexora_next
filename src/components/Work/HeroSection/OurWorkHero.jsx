@@ -72,7 +72,7 @@ const OurWorkHero = () => {
 
       // BACKGROUND PARALLAX
       gsap.to(".our-work-intro__background", {
-        yPercent: 8,
+        yPercent: 5,
         scale: 1.06,
         ease: "none",
         scrollTrigger: {

@@ -4,6 +4,7 @@ import Home from "../pages/home/Home";
 import NotFound from "../components/shared/NotFound";
 import About from "../pages/About/About";
 import OurWork from "../pages/OurWork/OurWork";
+import Services from "../pages/Services/Services";
 
 export default function AppRoutes({ onOpenContact }) {
   return (
@@ -12,6 +13,7 @@ export default function AppRoutes({ onOpenContact }) {
       <Route path="*" element={<NotFound />} />
       <Route path="/about" element={<About onOpenContact={onOpenContact} />} />
       <Route path="/work" element={<OurWork onOpenContact={onOpenContact} />} />
+      <Route path="/services" element={<Services />} />
     </Routes>
   );
 }
