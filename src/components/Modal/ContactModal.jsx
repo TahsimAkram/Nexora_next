@@ -169,7 +169,7 @@ export default function ContactModal({ isOpen, onClose, onSuccess, response }) {
 
         <div className="contact-modal__intro">
           <div className="contact-modal__brand">
-            <span className="contact-modal__brand-main">NEXORA</span>
+            <span className="contact-modal__brand-main">Design And Domain</span>
           </div>
 
           <div className="contact-modal__eyebrow">
@@ -193,14 +193,14 @@ export default function ContactModal({ isOpen, onClose, onSuccess, response }) {
           {/* CONTACT DETAILS */}
 
           <div className="contact-modal__details">
-            <a href="mailto:hello@nexora.com">
+            <a href="mailto:support@designanddomain.com">
               <span className="contact-modal__detail-icon">
                 <Mail size={17} strokeWidth={1.7} />
               </span>
 
               <span className="contact-modal__detail-content">
                 <small>Email</small>
-                <strong>hello@nexora.com</strong>
+                <strong>support@designanddomain.com</strong>
               </span>
             </a>
 
@@ -222,7 +222,7 @@ export default function ContactModal({ isOpen, onClose, onSuccess, response }) {
             <span className="contact-modal__venture-line" />
 
             <div>
-              <strong>NEXORA</strong>
+              <strong>Design And Domain</strong>
             </div>
           </div>
         </div>

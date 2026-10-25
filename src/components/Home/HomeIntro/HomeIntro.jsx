@@ -3,7 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import "./HomeIntro.css";
-import heroTechVisual from "../../../assets/home-hero.png";
+import heroBackground from "../../../assets/home-hero-background.png";
 import ParticleBackground from "../../ParticleBackground/ParticleBackground";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -12,14 +12,10 @@ const headlineWords = ["success.", "growth.", "progress.", "possibility."];
 
 export default function HomeIntro() {
   const sectionRef = useRef(null);
-  const visualWrapRef = useRef(null);
-
+  const backgroundRef = useRef(null);
   const [headlineWord, setHeadlineWord] = useState(headlineWords[0]);
 
-  // ==========================================================
-  // TYPEWRITER
-  // ==========================================================
-
+  // Typewriter headline
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       return undefined;
@@ -33,41 +29,31 @@ export default function HomeIntro() {
     const tick = () => {
       if (phase === "hold") {
         phase = "delete";
-
         timeoutId = window.setTimeout(tick, 1500);
-
         return;
       }
 
       if (phase === "delete") {
         charIndex -= 1;
-
         setHeadlineWord(headlineWords[wordIndex].slice(0, charIndex));
 
         if (charIndex === 0) {
           wordIndex = (wordIndex + 1) % headlineWords.length;
-
           phase = "type";
-
           timeoutId = window.setTimeout(tick, 240);
-
           return;
         }
 
         timeoutId = window.setTimeout(tick, 65);
-
         return;
       }
 
       charIndex += 1;
-
       setHeadlineWord(headlineWords[wordIndex].slice(0, charIndex));
 
       if (charIndex === headlineWords[wordIndex].length) {
         phase = "hold";
-
         timeoutId = window.setTimeout(tick, 2200);
-
         return;
       }
 
@@ -79,35 +65,20 @@ export default function HomeIntro() {
     return () => window.clearTimeout(timeoutId);
   }, []);
 
-  // ==========================================================
-  // ALL HERO ANIMATIONS
-  // ==========================================================
-
+  // Entrance and background movement
   useEffect(() => {
     const section = sectionRef.current;
-    const visualWrap = visualWrapRef.current;
+    const background = backgroundRef.current;
 
-    if (!section || !visualWrap) {
-      return undefined;
-    }
+    if (!section || !background) return undefined;
 
-    const reducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-
-    if (reducedMotion) {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       return undefined;
     }
 
     const context = gsap.context(() => {
-      // ======================================================
-      // INITIAL ENTRANCE
-      // ======================================================
-
       const intro = gsap.timeline({
-        defaults: {
-          ease: "power3.out",
-        },
+        defaults: { ease: "power3.out" },
       });
 
       intro
@@ -136,113 +107,30 @@ export default function HomeIntro() {
           "-=0.45",
         )
         .from(
-          visualWrap,
+          background,
           {
-            scale: 0.94,
             opacity: 0,
+            scale: 1.04,
             duration: 1.2,
-            ease: "power4.out",
+            ease: "power2.out",
           },
-          "-=0.5",
+          "-=0.7",
         );
 
-      // ======================================================
-      // SUBTLE "ALIVE" MOVEMENT
-      //
-      // This affects the visual only by a few pixels.
-      // ======================================================
-
-      const compactScreen = window.matchMedia("(max-width: 1366px)").matches;
-
-      // Subtle floating animation on larger screens only
-      if (!compactScreen) {
-        gsap.to(visualWrap, {
-          y: -2,
-          rotationZ: 0.08,
-          duration: 6,
-          ease: "sine.inOut",
-          repeat: -1,
-          yoyo: true,
-        });
-      }
-
-      // Preserve downward movement when scrolling on ALL screens
-      gsap.to(visualWrap, {
-        y: 45,
+      gsap.to(background, {
+        yPercent: 3,
         ease: "none",
         scrollTrigger: {
           trigger: section,
           start: "top top",
           end: "bottom top",
-          scrub: 1.4,
+          scrub: 1.2,
           invalidateOnRefresh: true,
         },
       });
-
-      // ======================================================
-      // CURSOR TILT
-      //
-      // Very small 3D response.
-      // ======================================================
-
-      const handlePointerMove = (event) => {
-        const rect = section.getBoundingClientRect();
-
-        const relativeX = (event.clientX - rect.left) / rect.width;
-
-        const relativeY = (event.clientY - rect.top) / rect.height;
-
-        const rotateY = (relativeX - 0.5) * 2;
-
-        const rotateX = (0.5 - relativeY) * 1.5;
-
-        gsap.to(visualWrap, {
-          rotateX,
-          rotateY,
-
-          duration: 1.1,
-
-          ease: "power3.out",
-
-          transformPerspective: 1400,
-
-          transformOrigin: "center center",
-
-          overwrite: "auto",
-        });
-      };
-
-      const handlePointerLeave = () => {
-        gsap.to(visualWrap, {
-          rotateX: 0,
-          rotateY: 0,
-
-          duration: 1.1,
-
-          ease: "power3.out",
-
-          overwrite: "auto",
-        });
-      };
-
-      section.addEventListener("pointermove", handlePointerMove);
-
-      section.addEventListener("pointerleave", handlePointerLeave);
-
-      // ======================================================
-      // CLEANUP
-      // ======================================================
-
-      return () => {
-        section.removeEventListener("pointermove", handlePointerMove);
-
-        section.removeEventListener("pointerleave", handlePointerLeave);
-      };
     }, section);
 
-    return () => {
-      context.revert();
-    };
+    return () => context.revert();
   }, []);
 
   return (
@@ -251,21 +139,16 @@ export default function HomeIntro() {
       className="home-intro"
       aria-labelledby="home-title"
     >
-      {/* ======================================================
-          EXISTING GEOMETRIC PARTICLE BACKGROUND
-      ======================================================= */}
+      <div
+        ref={backgroundRef}
+        className="home-intro__background"
+        style={{ backgroundImage: `url("${heroBackground}")` }}
+        aria-hidden="true"
+      />
 
       <ParticleBackground />
 
-      {/* ======================================================
-          HERO CONTENT
-      ======================================================= */}
-
       <div className="home-intro__content">
-        {/* ====================================================
-            LEFT CONTENT
-        ===================================================== */}
-
         <div className="home-intro__main">
           <p className="home-intro__kicker">Ideas, meet possibility.</p>
 
@@ -296,23 +179,6 @@ export default function HomeIntro() {
             We shape thoughtful digital experiences through design, technology,
             and a clear point of view.
           </p>
-        </div>
-
-        {/* ====================================================
-            TECH VISUAL
-        ===================================================== */}
-
-        <div className="home-intro__visual" aria-hidden="true">
-          <div ref={visualWrapRef} className="hero-tech-visual-wrap">
-            <div className="hero-tech-light-sweep" />
-
-            <img
-              className="hero-tech-visual"
-              src={heroTechVisual}
-              alt=""
-              draggable="false"
-            />
-          </div>
         </div>
       </div>
     </section>

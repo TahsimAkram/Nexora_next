@@ -450,7 +450,7 @@ export default function Hero() {
 
           <span className="eyebrow-label">ABOUT</span>
 
-          <strong>NEXORA</strong>
+          <strong>Design and Domain</strong>
         </div>
 
         <h1 className="about-title">
@@ -462,9 +462,9 @@ export default function Hero() {
         </h1>
 
         <p className="about-description">
-          Nexora Digital Solutions is a creative and technology-driven studio
-          focused on building digital products that help businesses grow, scale
-          and make a real impact.
+          Design and Domain is a creative and technology-driven studio focused
+          on building digital products that help businesses grow, scale and make
+          a real impact.
         </p>
 
         {/* Bottom-left text exactly as part of the screenshot */}
@@ -482,7 +482,7 @@ export default function Hero() {
 
       <div className="about-visual">
         <div ref={buildingRef} className="about-building">
-          <img src={houseImage} alt="Nexora digital studio" />
+          <img src={houseImage} alt="Design and Domain studio" />
         </div>
 
         {/* Creative Strategy */}
@@ -528,7 +528,7 @@ export default function Hero() {
           <span>STUDIO</span>
         </div>
 
-        <div className="visual-nexora">NEXORA</div>
+        <div className="visual-nexora">Design and Domain</div>
       </div>
     </section>
   );

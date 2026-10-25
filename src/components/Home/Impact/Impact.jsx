@@ -489,7 +489,7 @@ export default function Impact() {
       ref={sectionRef}
       className="impact-section"
       id="impact"
-      aria-label="Nexora impact statistics"
+      aria-label="Design And Domain impact statistics"
     >
       <div className="impact-energy" aria-hidden="true">
         <canvas ref={particleCanvasRef} className="impact-energy__canvas" />

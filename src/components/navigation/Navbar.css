@@ -349,6 +349,8 @@
     font-size: 0.9rem;
     font-weight: 650;
     text-decoration: none;
+    background: #f6f6f1;
+    border: none;
   }
 
   .navbar__mobile-contact svg {

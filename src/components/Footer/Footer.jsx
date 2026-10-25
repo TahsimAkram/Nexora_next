@@ -137,7 +137,7 @@ export default function Footer() {
             href="mailto:hello@designanddomain.com"
           >
             <Mail aria-hidden="true" size={18} />
-            <span>hello@designanddomain.com</span>
+            <span>support@designanddomain.com</span>
           </a>
 
           <a className="footer__contact-link" href="tel:+918420063029">

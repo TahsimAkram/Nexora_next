@@ -264,6 +264,8 @@ export default function Services() {
 
   const cardRefs = useRef([]);
 
+  const touchStartRef = useRef(null);
+
   const activeIndexRef = useRef(0);
 
   const isAnimating = useRef(false);
@@ -655,6 +657,41 @@ export default function Services() {
     };
   }, [next, previous]);
 
+  /*Service Touch swipe for Mobile */
+
+  const handleTouchStart = useCallback((event) => {
+    const touch = event.touches[0];
+
+    touchStartRef.current = {
+      x: touch.clientX,
+      y: touch.clientY,
+    };
+  }, []);
+
+  const handleTouchEnd = useCallback(
+    (event) => {
+      if (!touchStartRef.current) return;
+
+      const touch = event.changedTouches[0];
+      const deltaX = touch.clientX - touchStartRef.current.x;
+      const deltaY = touch.clientY - touchStartRef.current.y;
+
+      touchStartRef.current = null;
+
+      // Ignore vertical page scrolling and short movements.
+      if (Math.abs(deltaX) < 45 || Math.abs(deltaX) < Math.abs(deltaY) * 1.2) {
+        return;
+      }
+
+      if (deltaX < 0) {
+        next();
+      } else {
+        previous();
+      }
+    },
+    [next, previous],
+  );
+
   /* =======================================================
      RENDER
      ======================================================= */
@@ -681,7 +718,15 @@ export default function Services() {
         {/* DECK */}
 
         <div className="service-deck-area" ref={deckRef}>
-          <div className="service-deck">
+          <div
+            className="service-deck"
+            ref={deckRef}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+            onTouchCancel={() => {
+              touchStartRef.current = null;
+            }}
+          >
             {SERVICES.map((service, index) => (
               <ServiceCard
                 key={service.id}

@@ -547,9 +547,12 @@ export default function ContactCTA({ onOpenContact }) {
           </span>
         </button>
 
-        <a href="mailto:hello@nexoradigital.com" className="contact-cta__email">
+        <a
+          href="mailto:support@designanddomain.com"
+          className="contact-cta__email"
+        >
           <Mail size={18} strokeWidth={1.5} />
-          <span>hello@nexoradigital.com</span>
+          <span>support@designanddomain.com</span>
         </a>
       </div>
     </section>

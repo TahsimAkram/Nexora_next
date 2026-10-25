@@ -10,7 +10,6 @@ const navigationItems = [
   { label: "Services", path: "/services" },
   { label: "Our Work", path: "/work" },
   { label: "About Us", path: "/about" },
-  { label: "Careers", path: "/careers" },
 ];
 
 export default function Navbar({ onOpenContact }) {
@@ -54,7 +53,7 @@ export default function Navbar({ onOpenContact }) {
             aria-label="Nexora home"
             onClick={closeMenu}
           >
-            NEXORA<span>.</span>
+            Design And Domain<span>.</span>
           </Link>
 
           <nav className="navbar__links" aria-label="Main navigation">
@@ -119,14 +118,17 @@ export default function Navbar({ onOpenContact }) {
             </NavLink>
           ))}
 
-          <Link
-            to="/contact"
+          <button
+            type="button"
             className="navbar__mobile-contact"
-            onClick={closeMenu}
+            onClick={() => {
+              closeMenu();
+              onOpenContact();
+            }}
             tabIndex={menuOpen ? 0 : -1}
           >
             Let’s talk <ArrowOutwardIcon />
-          </Link>
+          </button>
         </nav>
       </div>
     </header>

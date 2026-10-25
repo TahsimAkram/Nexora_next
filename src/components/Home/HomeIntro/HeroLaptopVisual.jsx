@@ -58,7 +58,7 @@ export default function HeroLaptopVisual() {
           <div className="hero-laptop__screen">
             <header className="laptop-ui__nav">
               <span className="laptop-ui__brand">
-                NEXORA<span>.</span>
+                Design and Domain<span>.</span>
               </span>
 
               <div className="laptop-ui__links">

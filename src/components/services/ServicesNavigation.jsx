@@ -1,8 +1,32 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./ServicesNavigation.css";
 
 export default function ServicesNavigation({ services }) {
   const [activeService, setActiveService] = useState(services[0]?.id ?? "");
+
+  const navigationRef = useRef(null);
+
+  // Automatically reveal the active tab horizontally.
+  useEffect(() => {
+    const navigation = navigationRef.current;
+    if (!navigation) return;
+
+    const activeItem = navigation.querySelector(
+      ".services-index__item.is-active",
+    );
+
+    if (!activeItem) return;
+
+    const containerWidth = navigation.clientWidth;
+    const itemWidth = activeItem.offsetWidth;
+
+    const targetLeft = activeItem.offsetLeft - (containerWidth - itemWidth) / 2;
+
+    navigation.scrollTo({
+      left: Math.max(0, targetLeft),
+      behavior: "smooth",
+    });
+  }, [activeService]);
 
   useEffect(() => {
     const sections = services
@@ -35,6 +59,7 @@ export default function ServicesNavigation({ services }) {
     );
 
     sections.forEach((section) => observer.observe(section));
+
     return () => observer.disconnect();
   }, [services]);
 
@@ -61,7 +86,7 @@ export default function ServicesNavigation({ services }) {
 
   return (
     <nav className="services-index" aria-label="Services index">
-      <div className="services-index__inner">
+      <div className="services-index__inner" ref={navigationRef}>
         {services.map((service) => (
           <a
             key={service.id}
@@ -73,7 +98,9 @@ export default function ServicesNavigation({ services }) {
             onClick={(event) => handleSelect(event, service.id)}
           >
             <span className="services-index__number">{service.number}</span>
+
             <span className="services-index__label">{service.category}</span>
+
             <span className="services-index__active-line" aria-hidden="true" />
           </a>
         ))}

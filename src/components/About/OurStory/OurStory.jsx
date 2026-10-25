@@ -313,8 +313,9 @@ export default function OurStory() {
 
           <div className="story-description">
             <p>
-              Nexora was founded with a simple belief — that great design and
-              powerful technology can help businesses unlock new opportunities.
+              Design and Domain was founded with a simple belief — that great
+              design and powerful technology can help businesses unlock new
+              opportunities.
             </p>
 
             <p>

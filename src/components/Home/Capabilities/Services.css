@@ -625,7 +625,7 @@
 @media (max-width: 1200px) {
   .services-section {
     padding-top: clamp(80px, 8vw, 100px);
-
+    min-height: auto;
     padding-bottom: 70px;
   }
 
@@ -1339,6 +1339,7 @@
   .services-section {
     padding-top: 64px;
     padding-bottom: 44px;
+    min-height: auto;
   }
 
   .services-intro {

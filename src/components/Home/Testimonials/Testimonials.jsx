@@ -17,7 +17,7 @@ const TESTIMONIALS = [
   {
     id: 1,
     quote:
-      "Nexora didn’t just build our product. They understood our business.",
+      "Design And Domain didn’t just build our product. They understood our business.",
     highlight: "understood our business.",
     name: "ROHIT MEHTA",
     role: "CEO, FreightPro",
@@ -671,7 +671,7 @@ export default function Testimonials() {
           <br />
           Here’s what our clients say
           <br />
-          about working with Nexora.
+          about working with Design And Domain.
         </p>
       </div>
 

@@ -155,7 +155,7 @@ export default function Process() {
             </div>
 
             <span className="process-scene__visual-caption">
-              NEXORA / {processSteps[activeProcess].detail}
+              Design And Domain / {processSteps[activeProcess].detail}
             </span>
           </div>
         </div>
